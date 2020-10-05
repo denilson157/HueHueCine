@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root{
+    --yellow: #fdbe02;
+    --green:#298732;
+    --white:  #ffffff;
+    --black: #071013;
+}
+
+body{
+    height: 100vh !important;
+    background-color: #111;
+    color:#FFF;
+    margin:0;
+    font-family: 'Roboto', sans-serif
+}
+
+.btn-primary {
+    background-color: var(--yellow);
+    border-color: var(--yellow);
+    color: var(--black);
+}
+
+.btn-primary:hover{
+    background-color: var(--green);
+    border-color: var(--green);
+    color: var(--white);
+    transition: all 1s;
+}
+
+.btn-primary:focus{
+    box-shadow: none;
+    background-color: var(--green); 
+    border-color: var(--green);
+    color: var(--black);
+    transition: all 1s;
+}
+
+.btn-primary:active{
+    box-shadow: none !important;
+    background-color: var(--green) !important;
+    border-color: var(--green) !important;
+    color: var(--black) !important;
+    transition: all 1s;
+}
+
+
+
+.container-form{
+    min-height: calc(100vh - 86px); 
+}
