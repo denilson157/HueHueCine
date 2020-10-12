@@ -1,6 +1,7 @@
 <?php include "../cabecalho.php";
 
 ?>
+</header>
 
 <body>
 
@@ -14,8 +15,12 @@
     </header>
 
     <main>
-        <section class="container-form d-flex align-items-center justify-content-center px-4">
-
+        <section class="container-form d-flex flex-column align-items-center justify-content-center px-4">
+            <div class="my-5 text-center">
+                <h2 class="h3 w-50 mx-auto">
+                    Comece a marcar quais animes, filmes e séries você está assistindo
+                </h2>
+            </div>
             <div>
                 <form class="form-group" action="">
                     <div class="row">

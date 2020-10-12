@@ -1,6 +1,7 @@
 <?php include "../cabecalho.php";
 
 ?>
+</header>
 
 <body>
     <main>

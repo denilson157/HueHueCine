@@ -2,11 +2,12 @@
 
 :root{
     --yellow: #fdbe02;
+    --yellow-dark:#b89227;
     --green:#298732;
+    --green-dark:#26612b;
     --white:  #ffffff;
     --black: #071013;
 }
-
 body{
     height: 100vh !important;
     background-color: #111;
@@ -22,24 +23,24 @@ body{
 }
 
 .btn-primary:hover{
-    background-color: var(--green);
-    border-color: var(--green);
-    color: var(--white);
+    background-color: var(--yellow-dark);
+    border-color: var(--yellow-dark);
+    color: var(--black);
     transition: all 1s;
 }
 
 .btn-primary:focus{
     box-shadow: none;
-    background-color: var(--green); 
-    border-color: var(--green);
+    background-color: var(--yellow-dark); 
+    border-color: var(--yellow-dark);
     color: var(--black);
     transition: all 1s;
 }
 
 .btn-primary:active{
     box-shadow: none !important;
-    background-color: var(--green) !important;
-    border-color: var(--green) !important;
+    background-color: var(--yellow-dark) !important;
+    border-color: var(--yellow-dark) !important;
     color: var(--black) !important;
     transition: all 1s;
 }
@@ -52,25 +53,25 @@ body{
 }
 
 .btn-secondary:hover{
-    background-color: var(--yellow);
-    border-color: var(--yellow);
-    color: var(--black);
+    background-color: var(--green-dark);
+    border-color: var(--green-dark);
+    color: var(--white);
     transition: all 1s;
 }
 
 .btn-secondary:focus{
     box-shadow: none;
-    background-color: var(--yellow); 
-    border-color: var(--yellow);
-    color: var(--black);
+    background-color: var(--green-dark); 
+    border-color: var(--green-dark);
+    color: var(--white);
     transition: all 1s;
 }
 
 .btn-secondary:active{
     box-shadow: none !important;
-    background-color: var(--yellow) !important;
-    border-color: var(--yellow) !important;
-    color: var(--black) !important;
+    background-color: var(--green-dark) !important;
+    border-color: var(--green-dark) !important;
+    color: var(--white) !important;
     transition: all 1s;
 }
 

@@ -1,0 +1,67 @@
+.tvRow {
+    margin-bottom: 30px;
+}
+
+.tvRow h2 {
+    margin: 0px 0px 0px 30px;
+}
+
+.tvRow--listarea {
+    overflow-x: hidden;
+    padding-left: 30px;
+}
+
+.tvRow--list {
+    transition: all ease 0.2s;
+}
+
+.tvRow--item {
+    display: inline-block;
+    width: 146px;
+    cursor: pointer;
+}
+
+.tvRow--item img {
+    width: 100%;
+    transform: scale(0.9);
+    transition: all ease 0.2s;
+}
+
+.tvRow--item img:hover {
+    transform: scale(1);
+}
+
+.tvRow--left,.tvRow--right{
+    position: absolute;
+    width: 40px;
+    height: 225px;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 9990;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0;
+    transition: all ease 0.5s;
+}
+
+.tvRow--left{
+    left: 0
+}
+.tvRow--right{
+    right: 0
+}
+
+.tvRow:hover .tvRow--left,
+.tvRow:hover .tvRow--right
+{
+    opacity: 1;
+}
+
+@media (max-width: 760px){
+    .tvRow--left,
+    .tvRow--right{
+        opacity: 1;
+    }
+}

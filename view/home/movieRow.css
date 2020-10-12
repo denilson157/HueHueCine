@@ -1,0 +1,98 @@
+.movieRow {
+    margin-bottom: 30px;
+}
+
+.movieRow h2 {
+    margin: 0px 0px 0px 30px;
+}
+
+.movieRow--listarea {
+    overflow-x: hidden;
+    padding-left: 30px;
+}
+
+.movieRow--list {
+    transition: all ease 0.2s;
+}
+
+.movieRow--item {
+    display: inline-block;
+    width: 290px;    
+    cursor: pointer;
+}
+
+.movieRow--left,.movieRow--right{
+    position: absolute;
+    width: 40px;
+    height: 438px;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 9990;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0;
+    transition: all ease 0.5s;
+}
+
+.movieRow--left{
+    left: 0
+}
+.movieRow--right{
+    right: 0
+}
+
+.movieRow:hover .movieRow--left,
+.movieRow:hover .movieRow--right
+{
+    opacity: 1;
+}
+
+@media (max-width: 760px){
+    .movieRow--left,
+    .movieRow--right{
+        opacity: 1;
+    }
+}
+
+
+
+.movie{
+    height: 219px;
+    transform: scale(0.9);
+    transition: all ease 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;    
+}
+
+.movie:hover {
+    height: 219px;
+    transform: scale(1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+.infos{
+    transition: all ease 0.2s;
+}
+.infos:hover{
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5);
+}
+
+.movie--name {
+    font-weight: bold;
+    font-size: small;
+}
+
+
+.movie--info-points, .movie--info-year{
+    display: inline-block;
+    font-size: small;
+}
+
+.movie--info-points{
+    color: #46d369;
+}
