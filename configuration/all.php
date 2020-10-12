@@ -6,7 +6,7 @@
 
 // Global Configuration
 $cnf['apikey'] = '';
-$cnf['lang'] = 'en';
+$cnf['lang'] = 'pt-BR';
 $cnf['timezone'] = 'Europe/Berlin';
 $cnf['adult'] = false;
 $cnf['debug'] = false;

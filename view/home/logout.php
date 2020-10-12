@@ -27,6 +27,7 @@
                 <?php
                 include './listMovies/onTheAir/index.php';
                 include './listMovies/featuredFilms/index.php';
+                include './listMovies/featuredTV/index.php';
                 ?>
             </div>
         </section>

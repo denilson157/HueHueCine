@@ -1,8 +1,8 @@
-const scrollFeaturedFilms = {
+const scrollFeaturedTV = {
     scrollx: -800,
     setScrollx: function(value) {
         this.scrollx = value
-        document.querySelector('#featuredFilms').style.marginLeft = this.scrollx + 'px'
+        document.querySelector('#featuredTv').style.marginLeft = this.scrollx + 'px'
     },
     handleLeft: function() {
         let newValue = this.scrollx + Math.round(window.innerWidth / 2)
@@ -26,7 +26,7 @@ const scrollFeaturedFilms = {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    document.querySelector('#featuredFilms').style.width = '3000px';
+    document.querySelector('#featuredTv').style.width = '3000px';
 
     scrollFeaturedFilms.setScrollx(0)
 
