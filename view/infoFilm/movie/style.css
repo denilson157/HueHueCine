@@ -1,0 +1,23 @@
+
+:root{
+    --yellow: #fdbe02;
+    --yellow-dark:#b89227;
+    --green:#298732;
+    --green-dark:#26612b;
+    --white:  #ffffff;
+    --black: #071013;
+    --gray: #707070;
+}
+
+.infoTVmovie img {
+    width: 89%;
+    float: right;
+}
+
+.text-primary{
+    color: var(--yellow) !important ; 
+}
+
+.text-secondary{
+    color: var(--gray) !important;
+}

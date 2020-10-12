@@ -1,9 +1,9 @@
 <?php
 include "../../cabecalho.php";
-require_once(dirname(__FILE__) . "../../../../controller/TvAPI.php");
-$tmdb = new TVSHOWApi();
+require_once(dirname(__FILE__) . "../../../../controller/MovieAPI.php");
+$tmdb = new MOVIEApi();
 
-$show = $tmdb->getTVDetail($_GET['id']);
+$movie = $tmdb->getMovieDetail($_GET['id']);
 
 
 ?>
@@ -18,7 +18,9 @@ $show = $tmdb->getTVDetail($_GET['id']);
 
         <nav class="navbar navbar-expand navbar-dark justify-content-between">
             <div class="navbar-brand">
-                <img src="http://via.placeholder.com/100x60">
+                <a href="../../home/logout.php">
+                    <img src="http://via.placeholder.com/100x60">
+                </a>
                 <h1 class="d-none">HueHueCine</h1>
             </div>
             <div class="d-inline">
@@ -29,16 +31,16 @@ $show = $tmdb->getTVDetail($_GET['id']);
     </header>
 
     <main>
-        <?php if (isset($show)) : ?>
-            <section id="tvShow" class="container">
+        <?php if (isset($movie)) : ?>
+            <section id="tvmovie" class="container">
                 <div class="row">
-                    <div class="col-6 infoTVShow">
-                        <img src="https://image.tmdb.org/t/p/original<?= $show->getPoster() ?>" alt="<?= $show->getOriginalName() ?>" title="<?= $show->getOriginalName() ?>">
+                    <div class="col-6 infoTVmovie">
+                        <img src="https://image.tmdb.org/t/p/original<?= $movie->getPoster() ?>" alt="<?= $movie->getOriginalTitle() ?>" title="<?= $movie->getOriginalTitle() ?>">
                     </div>
                     <div class="col-6">
                         <div class="pb-3">
-                            <h2 class="h4"><?= $show->getName() ?></h2>
-                            <h3 class="h6 text-secondary"><?= $show->getOriginalName() ?></h3>
+                            <h2 class="h4"><?= $movie->getTitle() ?></h2>
+                            <h3 class="h6 text-secondary"><?= $movie->getOriginalTitle() ?></h3>
                         </div>
                         <div class="d-block py-2">
                             <div class="mb-1">
@@ -47,7 +49,7 @@ $show = $tmdb->getTVDetail($_GET['id']);
                                 <?php
 
                                 $star = 0;
-                                $votes = floor($show->getVoteAverage());
+                                $votes = floor($movie->getVotes());
 
                                 for ($i = 0; $i < $votes; $i = $i + 2)
                                     if ($i <= $votes) {
@@ -63,13 +65,11 @@ $show = $tmdb->getTVDetail($_GET['id']);
                             </div>
 
                             <div class="d-flex my-2">
-                                <p class="h6 mr-2 ">
-                                    <?= $show->getNumSeasons() ?> temporada<?= $show->getNumSeasons() > 1 ? 's' : '' ?>
-                                </p>
-                                <p class="h6 text-secondary">
-                                    <?= $show->getNumEpisodes() ?> episódio<?= $show->getNumEpisodes() > 1 ? 's' : '' ?>
+                                <p class="text-secondary">
+                                    <?= $movie->getRuntime() ?> minutos
                                 </p>
                             </div>
+
                             <div class="d-flex my-2">
                                 <p class="h6 mr-2">
                                     Gêneros:
@@ -78,7 +78,7 @@ $show = $tmdb->getTVDetail($_GET['id']);
                                     <?php
                                     $genres = array();
 
-                                    foreach ($show->getGenres() as $g) {
+                                    foreach ($movie->getGenres() as $g) {
                                         array_push($genres, $g['name']);
                                     }
 
@@ -87,11 +87,12 @@ $show = $tmdb->getTVDetail($_GET['id']);
                                 </p>
                             </div>
 
+
                         </div>
                         <div class="Sinopse py-2">
                             <h4 class="h4">Sinopse</h4>
                             <p>
-                                <?= $show->getOverview() ?>
+                                <?= $movie->getOverview() ?>
                             </p>
                         </div>
                     </div>
@@ -99,14 +100,14 @@ $show = $tmdb->getTVDetail($_GET['id']);
                 <div class="row my-5">
                     <div class="mx-auto">
                         <p class="text-center h3 mb-0">Você já assitiu?</p>
-                        <p class="text-center text-secondary h5">Faça o login e adicione <?= $show->getName() ?> a sua lista de assistidos.</p>
+                        <p class="text-center text-secondary h5">Faça o login e adicione <?= $movie->getTitle() ?> a sua lista de assistidos.</p>
                     </div>
                 </div>
             </section>
         <?php
         endif
         ?>
-        <?php if (!isset($show)) :
+        <?php if (!isset($movie)) :
             include '../../notFound/index.html';
         endif
         ?>

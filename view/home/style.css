@@ -79,3 +79,7 @@ body{
 .container-form{
     min-height: calc(100vh - 86px); 
 }
+a:hover{
+    color: white;
+    text-decoration: none;
+}

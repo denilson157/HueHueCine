@@ -6,6 +6,15 @@ require_once(dirname(__FILE__) . "./Tmdb-API.php");
 class MOVIEApi extends TMDB
 {
 
+    public function getMovieDetail($movieId)
+    {
+        $result = $this->get("/movie/$movieId?");
+        if (count($result) > 0)
+            return (object)  new Movie($result);
+        else
+            return null;
+    }
+
     public function getTopRatedMovies()
     {
         $movies = array();

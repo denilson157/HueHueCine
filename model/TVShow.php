@@ -23,6 +23,12 @@ class TVShow extends ApiBaseObject
     {
         return $this->_data['number_of_episodes'];
     }
+    
+	public function getGenres()
+	{
+		return $this->_data['genres'];
+	}
+
     public function getPoster()
     {
         return $this->_data['poster_path'];

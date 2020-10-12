@@ -14,17 +14,18 @@ class ApiBaseObject
     public function __construct($data) {
         $this->_data = $data;
     }
-
     
     public function getID() {
         return $this->_data['id'];
     }
-
     
     public function getPoster() {
         return $this->_data['poster_path'];
     }
 
+    public function getOverview() {
+        return $this->_data['overview'];
+    }    
     
     public function getVoteAverage() {
         return $this->_data['vote_average'];

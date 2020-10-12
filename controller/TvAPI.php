@@ -30,4 +30,14 @@ class TVSHOWApi extends TMDB
 
         return (array) $tv;
     }
+
+    public function getTVDetail($tvId)
+    {
+        $result = $this->get("/tv/$tvId?");
+
+        if (count($result) > 0)
+            return (object)  new TVShow($result);
+        else
+            return null;
+    }    
 }

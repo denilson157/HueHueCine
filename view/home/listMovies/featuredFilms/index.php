@@ -22,26 +22,28 @@ $movies = $tmdb->getTopRatedMovies();
         <div class="movieRow--list" id="featuredFilms">
             <?php foreach ($movies as $movie) : ?>
                 <div class="movieRow--item">
-                    <div class="movie" style="background-size:cover;
+                    <a href="../../../view/infoFilm/movie/logout.php?id=<?= $movie->getID() ?>">
+                        <div class="movie" style="background-size:cover;
                     background-position:center;
                     background-image: url(https://image.tmdb.org/t/p/w400<?= $movie->getPoster() ?>)
                     ">
-                        <div class="infos p-2">
+                            <div class="infos p-2">
 
-                            <div class="movie--name">
-                                <?= $movie->getTitle() ?>
-                            </div>
-                            <div class="movie--info">
-                                <div class="movie--info-points">
-                                    <?= $movie->getVotes() ?>
+                                <div class="movie--name">
+                                    <?= $movie->getTitle() ?>
                                 </div>
-                                <div class="movie--info-year">
-                                    <?= $movie->getYear() ?>
+                                <div class="movie--info">
+                                    <div class="movie--info-points">
+                                        <?= $movie->getVotes() ?>
+                                    </div>
+                                    <div class="movie--info-year">
+                                        <?= $movie->getYear() ?>
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             <?php endforeach ?>
         </div>

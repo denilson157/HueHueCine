@@ -4,11 +4,15 @@ require_once "ApiBaseObject.php";
 
 class Movie extends ApiBaseObject
 {
+	public function getOriginalTitle()
+	{
+		return $this->_data['original_title'];
+	}
 	public function getTitle()
 	{
 		return $this->_data['title'];
 	}
-	
+
 	public function getVotes()
 	{
 		return $this->_data['vote_average'];
@@ -22,7 +26,16 @@ class Movie extends ApiBaseObject
 		return $date->format("Y");
 	}
 
-	
+	public function getGenres()
+	{
+		return $this->_data['genres'];
+	}
+
+	public function getRuntime()
+	{
+		return $this->_data['runtime'];
+	}
+
 	public function getReviews()
 	{
 		$reviews = array();

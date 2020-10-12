@@ -21,7 +21,7 @@ $movies = $tmdb->getTopRatedTV();
     <div class="movieRow--listarea">
         <div class="movieRow--list" id="featuredTv">
             <?php foreach ($movies as $movie) : ?>
-                <a href="../../../view/infoFilm/tv/logout.php">
+                <a href="../../../view/infoFilm/tv/logout.php?id=<?= $movie->getID() ?>">
                     <div class="movieRow--item">
                         <div class="movie" style="background-size:cover;
                     background-position:center;
