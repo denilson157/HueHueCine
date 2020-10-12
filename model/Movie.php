@@ -4,9 +4,6 @@ require_once "ApiBaseObject.php";
 
 class Movie extends ApiBaseObject
 {
-
-	private $_tmdb;
-
 	public function getTitle()
 	{
 		return $this->_data['title'];

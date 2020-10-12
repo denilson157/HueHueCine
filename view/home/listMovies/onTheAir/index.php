@@ -1,7 +1,7 @@
 <?php
-require_once(dirname(__FILE__) . "/../../../../tmdb-api.php");
+require_once(dirname(__FILE__) . "../../../../../controller/TvAPI.php");
 
-$tmdb = new TMDB();
+$tmdb = new TVSHOWApi();
 
 $tvs = $tmdb->getOnTheAir();
 ?>

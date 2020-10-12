@@ -85,12 +85,14 @@
 .movie--name {
     font-weight: bold;
     font-size: small;
+    color:white;
 }
 
 
 .movie--info-points, .movie--info-year{
     display: inline-block;
     font-size: small;
+    color:white;
 }
 
 .movie--info-points{

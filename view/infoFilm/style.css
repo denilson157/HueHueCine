@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root{
+    --yellow: #fdbe02;
+    --yellow-dark:#b89227;
+    --green:#298732;
+    --green-dark:#26612b;
+    --white:  #ffffff;
+    --black: #071013;
+}
+body{
+    height: 100vh !important;
+    background-color: #111;
+    color:#FFF;
+    margin:0;
+    font-family: 'Roboto', sans-serif
+}
+
+.btn-primary {
+    background-color: var(--yellow);
+    border-color: var(--yellow);
+    color: var(--black);
+}
+
+.btn-primary:hover{
+    background-color: var(--yellow-dark);
+    border-color: var(--yellow-dark);
+    color: var(--black);
+    transition: all 1s;
+}
+
+.btn-primary:focus{
+    box-shadow: none;
+    background-color: var(--yellow-dark); 
+    border-color: var(--yellow-dark);
+    color: var(--black);
+    transition: all 1s;
+}
+
+.btn-primary:active{
+    box-shadow: none !important;
+    background-color: var(--yellow-dark) !important;
+    border-color: var(--yellow-dark) !important;
+    color: var(--black) !important;
+    transition: all 1s;
+}
+
+/* SEGUNDO BOTAO */
+.btn-secondary {
+    background-color: var(--green);
+    border-color: var(--green);
+    color: var(--white);
+}
+
+.btn-secondary:hover{
+    background-color: var(--green-dark);
+    border-color: var(--green-dark);
+    color: var(--white);
+    transition: all 1s;
+}
+
+.btn-secondary:focus{
+    box-shadow: none;
+    background-color: var(--green-dark); 
+    border-color: var(--green-dark);
+    color: var(--white);
+    transition: all 1s;
+}
+
+.btn-secondary:active{
+    box-shadow: none !important;
+    background-color: var(--green-dark) !important;
+    border-color: var(--green-dark) !important;
+    color: var(--white) !important;
+    transition: all 1s;
+}
+
+
+.container-form{
+    min-height: calc(100vh - 86px); 
+}

@@ -1,8 +1,8 @@
 <?php
-require_once(dirname(__FILE__) . "/../../../../tmdb-api.php");
+require_once(dirname(__FILE__) . "../../../../../controller/MovieAPI.php");
 
 
-$tmdb = new TMDB();
+$tmdb = new MOVIEApi();
 
 $movies = $tmdb->getTopRatedMovies();
 
