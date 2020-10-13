@@ -18,7 +18,9 @@ $show = $tmdb->getTVDetail($_GET['id']);
 
         <nav class="navbar navbar-expand navbar-dark justify-content-between">
             <div class="navbar-brand">
-                <img src="http://via.placeholder.com/100x60">
+                <a href="../../home/logout.php">
+                    <img src="http://via.placeholder.com/100x60">
+                </a>
                 <h1 class="d-none">HueHueCine</h1>
             </div>
             <div class="d-inline">
