@@ -13,9 +13,9 @@ $movie = $tmdb->getMovieDetail($_GET['id']);
 </header>
 
 <body style="background-size:cover;
-                    background-position:center;
-                    background-image: url(https://image.tmdb.org/t/p/original<?= $movie->getPoster() ?>);
-                    ">
+            background-position:center;
+            background-image: url(https://image.tmdb.org/t/p/original<?= $movie->getPoster() ?>);
+            ">
 
     <div class="bgPoster">
 
@@ -28,6 +28,14 @@ $movie = $tmdb->getMovieDetail($_GET['id']);
                     </a>
                     <h1 class="d-none">HueHueCine</h1>
                 </div>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../view/home/logout.php">Home </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Minha Lista</a>
+                    </li>
+                </ul>
                 <div class="d-inline">
                     <a href="../login" class="btn btn-sm btn-secondary mx-2 my-sm-0">Entrar</a>
                     <a href="../register" class="btn btn-sm btn-primary my-sm-0">Cadastre-se</a>

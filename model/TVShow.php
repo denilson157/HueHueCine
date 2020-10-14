@@ -23,11 +23,11 @@ class TVShow extends ApiBaseObject
     {
         return $this->_data['number_of_episodes'];
     }
-    
-	public function getGenres()
-	{
-		return $this->_data['genres'];
-	}
+
+    public function getGenres()
+    {
+        return $this->_data['genres'];
+    }
 
     public function getPoster()
     {
@@ -36,9 +36,14 @@ class TVShow extends ApiBaseObject
 
     public function getYear()
     {
+
+
         $pdate = $this->_data['first_air_date'];
 
-        $date = DateTime::createFromFormat("Y-m-d", $pdate);
-        return $date->format("Y");
+        if ($pdate != "") {
+            $date = DateTime::createFromFormat("Y-m-d", $pdate);
+            return $date->format("Y");
+        } else
+            return "";
     }
 }

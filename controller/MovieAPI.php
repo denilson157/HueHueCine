@@ -27,4 +27,18 @@ class MOVIEApi extends TMDB
 
         return (array) $movies;
     }
+
+    public function getByName($movieName)
+    {
+        $movies = array();
+
+        $result = $this->get("/search/movie?query=$movieName");
+
+        if (count($result) > 0)
+            foreach ($result['results'] as $data) {
+                $movies[] = new Movie($data);
+            }
+
+        return (array) $movies;
+    }
 }

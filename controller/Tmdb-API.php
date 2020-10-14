@@ -11,6 +11,7 @@ class TMDB
 
         $url = self::API_BASE . $endpoint . self::AUTH;
 
+
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HEADER, 0);

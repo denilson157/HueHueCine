@@ -22,8 +22,11 @@ class Movie extends ApiBaseObject
 	{
 		$pdate = $this->_data['release_date'];
 
-		$date = DateTime::createFromFormat("Y-m-d", $pdate);
-		return $date->format("Y");
+		if ($pdate != "") {
+			$date = DateTime::createFromFormat("Y-m-d", $pdate);
+			return $date->format("Y");
+		} else
+			return "";
 	}
 
 	public function getGenres()

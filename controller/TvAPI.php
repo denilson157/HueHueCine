@@ -39,5 +39,19 @@ class TVSHOWApi extends TMDB
             return (object)  new TVShow($result);
         else
             return null;
-    }    
+    }
+
+    public function getByName($tvName)
+    {
+        $movies = array();
+
+        $result = $this->get("/search/tv?query=$tvName");
+
+        if (count($result) > 0)
+            foreach ($result['results'] as $data) {
+                $movies[] = new TVShow($data);
+            }
+
+        return (array) $movies;
+    }
 }
