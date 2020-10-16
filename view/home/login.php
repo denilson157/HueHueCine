@@ -1,9 +1,10 @@
-<?php include "../cabecalho.php";
+<?php
+include "../cabecalho.php";
 include "../acess.php";
 
-$userSession = new ACESS("/view/home/login.php");
-
-$userSession->retirectIfExist();
+$userSession = new ACESS("/view/home/logout.php");
+$userSession->retirectIfDoesntExist();
+$user = $userSession->getUser();
 
 ?>
 
@@ -36,9 +37,9 @@ $userSession->retirectIfExist();
                     <i class="fas fa-search"></i>
                 </button>
             </form>
-            <div class="d-inline">
-                <a href="../login" class="btn btn-sm btn-secondary mx-2 my-sm-0">Entrar</a>
-                <a href="../register" class="btn btn-sm btn-primary my-sm-0">Cadastre-se</a>
+            <div class="d-flex ml-3 align-items-center">
+                <p class="px-2 mb-0">Olá, <?php if (isset($user['email']))  echo $user['email'] ?></p>
+                <a href="/view/signOut.php" class="btn btn-sm"><i class="fas fa-sign-out-alt"></i></a>
             </div>
         </nav>
     </header>

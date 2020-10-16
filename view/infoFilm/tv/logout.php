@@ -1,9 +1,21 @@
 <?php
 include "../../cabecalho.php";
+include "../../acess.php";
 require_once(dirname(__FILE__) . "../../../../controller/TvAPI.php");
-$tmdb = new TVSHOWApi();
 
-$show = $tmdb->getTVDetail($_GET['id']);
+$id = $_GET['id'];
+
+$userSession = new ACESS("/view/infoFilm/tv/login.php?id=$id");
+$userSession->retirectIfExist();
+
+
+$tmdb = new TVSHOWApi();
+$show = [];
+
+if (isset($_GET['id']))
+    $show = $tmdb->getTVDetail($_GET['id']);
+else
+    Header("Location: /view/home/logout.php")
 
 
 ?>
@@ -36,8 +48,8 @@ $show = $tmdb->getTVDetail($_GET['id']);
                     </li>
                 </ul>
                 <div class="d-inline">
-                    <a href="../login" class="btn btn-sm btn-secondary mx-2 my-sm-0">Entrar</a>
-                    <a href="../register" class="btn btn-sm btn-primary my-sm-0">Cadastre-se</a>
+                    <a href="/view/login/index.php" class="btn btn-sm btn-secondary mx-2 my-sm-0">Entrar</a>
+                    <a href="/view/register/index.php" class="btn btn-sm btn-primary my-sm-0">Cadastre-se</a>
                 </div>
             </nav>
         </header>

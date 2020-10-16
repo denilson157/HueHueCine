@@ -1,10 +1,16 @@
 <?php
 include "../../cabecalho.php";
+include "../../acess.php";
 require_once(dirname(__FILE__) . "../../../../controller/MovieAPI.php");
+
+$id = $_GET['id'];
+
+$userSession = new ACESS("/view/infoFilm/movie/logout.php?id=$id");
+$userSession->retirectIfDoesntExist();
+$user = $userSession->getUser();
+
 $tmdb = new MOVIEApi();
-
-$movie = $tmdb->getMovieDetail($_GET['id']);
-
+$movie = $tmdb->getMovieDetail($id);
 
 ?>
 
@@ -36,9 +42,9 @@ $movie = $tmdb->getMovieDetail($_GET['id']);
                         <a class="nav-link" href="#">Minha Lista</a>
                     </li>
                 </ul>
-                <div class="d-inline">
-                    <a href="../login" class="btn btn-sm btn-secondary mx-2 my-sm-0">Entrar</a>
-                    <a href="../register" class="btn btn-sm btn-primary my-sm-0">Cadastre-se</a>
+                <div class="d-flex ml-3 align-items-center">
+                    <p class="px-2 mb-0">Olá, <?php if (isset($user['email']))  echo $user['email'] ?></p>
+                    <a href="/view/signOut.php" class="btn btn-sm"><i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </nav>
         </header>
@@ -73,8 +79,8 @@ $movie = $tmdb->getMovieDetail($_GET['id']);
 
                                     for ($i = 0; $i < 5 - $star; $i++)
                                         echo '<i class="far fa-star fa-2x text-primary"></i>';
-
                                     ?>
+
                                 </div>
 
                                 <div class="d-flex my-2">

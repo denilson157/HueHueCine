@@ -1,6 +1,13 @@
 <?php
 include "../../cabecalho.php";
+include "../../acess.php";
 require_once(dirname(__FILE__) . "../../../../controller/MovieAPI.php");
+
+$id = $_GET['id'];
+
+$userSession = new ACESS("/view/infoFilm/movie/login.php?id=$id");
+$userSession->retirectIfExist();
+
 $tmdb = new MOVIEApi();
 
 $movie = $tmdb->getMovieDetail($_GET['id']);

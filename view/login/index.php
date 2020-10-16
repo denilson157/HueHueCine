@@ -16,26 +16,32 @@
 
     <main>
         <section class="container-form d-flex flex-column align-items-center justify-content-center px-4">
-            <div class="my-5 text-center">
+            <div class="my-4 text-center">
                 <h2 class="h3 w-50 mx-auto">
-                    Comece a marcar quais animes, filmes e séries você está assistindo
+                    Comece a marcar quais filmes e séries você está assistindo
                 </h2>
+
+                <?php if (isset($msg)) : ?>
+                    <h2 class="h3 w-100 mx-auto py-2 text-warning">
+                        <?= $msg ?>
+                    </h2>
+                <?php endif ?>
             </div>
             <div>
-                <form class="form-group" action="">
+                <form class="form-group" method="post" action="/view/login/logar.php">
                     <div class="row">
                         <div class="col-12">
                             <label for="email">Email</label>
-                            <input type="email" id="email" class="form-control" name="email" />
+                            <input type="email" id="email" class="form-control" required name="email" />
                         </div>
                         <div class="col-12">
                             <label for="password">Senha</label>
-                            <input type="password" id="password" class="form-control" name="password" />
+                            <input type="password" id="password" class="form-control" required name="password" />
                         </div>
                     </div>
                     <div class="row my-4">
                         <div class="mx-auto">
-                            <button class="btn btn-primary" type="submit">
+                            <button class="btn btn-primary" type="submit" name="logar">
                                 Entrar
                             </button>
                         </div>
@@ -47,6 +53,13 @@
                                 <a class="text-center" href="../register/"> Cadastre-se agora</a>
 
                                 <p> e descubra o HueHueCine</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mx-auto">
+                            <div class="text-center">
+                                <a class="text-secondary" href="/view/home/logout"> Prosseguir sem cadastro</a>
                             </div>
                         </div>
                     </div>

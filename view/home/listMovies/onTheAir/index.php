@@ -19,7 +19,7 @@ $tvs = $tmdb->getOnTheAir();
         <div class="tvRow--list" id="onTheAir">
             <?php foreach ($tvs as $tv) : ?>
                 <div class="tvRow--item">
-                    <a href="../../../view/infoFilm/tv/logout.php?id=<?= $tv->getID() ?>">
+                    <a href="../../../view/infoFilm/tv/login.php?id=<?= $tv->getID() ?>">
                         <img src="https://image.tmdb.org/t/p/w200<?= $tv->getPoster() ?>" alt="<?= $tv->getOriginalName() ?>" title="<?= $tv->getOriginalName() ?>">
                     </a>
                 </div>

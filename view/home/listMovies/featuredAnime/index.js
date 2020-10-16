@@ -1,17 +1,17 @@
-const scrollFeaturedTV = {
+const scrollFeaturedTVAnime = {
     scrollx: -800,
-    setScrollx: function(value) {
+    setScrollx: function (value) {
         this.scrollx = value
-        document.querySelector('#featuredTv').style.marginLeft = this.scrollx + 'px'
+        document.querySelector('#featuredTvAnime').style.marginLeft = this.scrollx + 'px'
     },
-    handleLeft: function() {
+    handleLeft: function () {
         let newValue = this.scrollx + Math.round(window.innerWidth / 2)
         if (newValue > 0)
             newValue = 0
 
         this.setScrollx(newValue)
     },
-    handleRight: function(totalItems) {
+    handleRight: function (totalItems) {
         let newValue = this.scrollx - Math.round(window.innerWidth / 2)
 
         let listWidth = totalItems * 150;
@@ -25,9 +25,9 @@ const scrollFeaturedTV = {
 
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    document.querySelector('#featuredTv').style.width = '3000px';
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector('#featuredTvAnime').style.width = '3000px';
 
-    scrollFeaturedTV.setScrollx(0)
+    scrollFeaturedTVAnime.setScrollx(0)
 
 });

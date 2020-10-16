@@ -1,11 +1,16 @@
 <?php
-include "../cabecalho.php";
-
-$showName = $_GET['name'];
-
 require_once(dirname(__FILE__) . "../../../controller/MovieAPI.php");
 require_once(dirname(__FILE__) . "../../../controller/TvAPI.php");
+include "../cabecalho.php";
+include "../acess.php";
 
+$name = $_GET['name'];
+
+$userSession = new ACESS("/view/findFilm/logout.php?name=$name");
+$userSession->retirectIfDoesntExist();
+$user = $userSession->getUser();
+
+$showName = $_GET['name'];
 
 $movieAPI = new MOVIEApi();
 
@@ -41,9 +46,9 @@ $tvs = $tvAPI->getByName($showName);
                     <a class="nav-link" href="#">Minha Lista</a>
                 </li>
             </ul>
-            <div class="d-inline">
-                <a href="../login" class="btn btn-sm btn-secondary mx-2 my-sm-0">Entrar</a>
-                <a href="../register" class="btn btn-sm btn-primary my-sm-0">Cadastre-se</a>
+            <div class="d-flex ml-3 align-items-center">
+                <p class="px-2 mb-0">Olá, <?php if (isset($user['email']))  echo $user['email'] ?></p>
+                <a href="/view/signOut.php" class="btn btn-sm"><i class="fas fa-sign-out-alt"></i></a>
             </div>
         </nav>
     </header>
@@ -54,9 +59,8 @@ $tvs = $tvAPI->getByName($showName);
             <div class="lists">
 
                 <?php
-                include "./films/logout.php";
-                include "./tv/logout.php";
-
+                include "./films/index.php";
+                include "./tv/index.php";
                 ?>
             </div>
         </section>
