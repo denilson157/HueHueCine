@@ -1,6 +1,7 @@
 <?php
 $credentials = [
-    0 => ['email' => 'deene67@gmail.com', 'senha' => '123456789']
+    0 => ['email' => 'deene67@gmail.com', 'senha' => '123456789'], //Usuario Denilson
+    1 => ['email' => 'naranonva@hotmail.com', 'senha' => '123456789'] //Usuario Nicolas
 ];
 
 session_start();
