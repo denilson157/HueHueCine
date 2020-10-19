@@ -32,7 +32,7 @@ $userSession->retirectIfExist();
 
             <form class="form-inline my-2 my-lg-0" method="GET" action="../findFilm/login.php?">
                 <input class="form-control form-control-sm mr-sm-2" name="name" type="text" placeholder="Pesquisar por Nome">
-                <button class="btn btn-outline-success my-2 btn-sm my-sm-0" type="submit">
+                <button class="btn btn-outline-light my-2 btn-sm my-sm-0" type="submit">
                     <i class="fas fa-search"></i>
                 </button>
             </form>

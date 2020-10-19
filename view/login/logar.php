@@ -15,8 +15,8 @@ else {
 
     if (in_array(['email' => $email, 'senha' => $senha], $credentials)) {
 
-        $user = array_filter($credentials,  function ($produto) {
-            return $produto['email'] == $_POST['email'];
+        $user = array_filter($credentials,  function ($user) {
+            return $user['email'] == $_POST['email'];
         });
         $_SESSION['user'] = $user;
 

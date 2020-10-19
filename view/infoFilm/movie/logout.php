@@ -43,6 +43,12 @@ $movie = $tmdb->getMovieDetail($_GET['id']);
                         <a class="nav-link" href="#">Minha Lista</a>
                     </li>
                 </ul>
+                <form class="form-inline my-2 my-lg-0" method="GET" action="/view/findFilm/logout.php?">
+                    <input class="form-control form-control-sm mr-sm-2 inputFind" name="name" type="text" placeholder="Pesquisar por Nome">
+                    <button class="btn btn-outline-light my-2 btn-sm my-sm-0" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
                 <div class="d-inline">
                     <a href="../login" class="btn btn-sm btn-secondary mx-2 my-sm-0">Entrar</a>
                     <a href="../register" class="btn btn-sm btn-primary my-sm-0">Cadastre-se</a>

@@ -5,6 +5,7 @@
     --green:#298732;
     --white:  #ffffff;
     --black: #071013;
+    --grey: #949494;
 }
 
 body{
@@ -77,4 +78,18 @@ body{
 
 .container-form{
     min-height: calc(100vh - 86px); 
+}
+
+.inputFind{
+    background-color: var(--black);
+    color: var(--grey);
+}
+
+.inputFind:focus{
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.navbar{
+    background-color: rgba(0, 0, 0, 0.1);
 }
