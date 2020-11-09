@@ -4,22 +4,29 @@
 </header>
 
 <body>
+
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark justify-content-center">
+            <div>
+                <img src="http://via.placeholder.com/100x60">
+                <h1 class="d-none">HueHueCine</h1>
+            </div>
+        </nav>
+    </header>
+
     <main>
-
-        <header>
-            <nav class="navbar navbar-expand-sm navbar-dark justify-content-center">
-                <div>
-                    <img src="http://via.placeholder.com/100x60">
-                    <h1 class="d-none">HueHueCine</h1>
-                </div>
-            </nav>
-        </header>
-
-
         <section class="container-form d-flex align-items-center justify-content-center px-4">
+
+
             <div class="col-6">
 
-                <form class="form-group" action="">
+            <?php if (isset($msg)) : ?>
+                    <h2 style='text-align: center;' class="h3 w-100 mx-auto col-6 text-warning">
+                        <?= $msg ?>
+                    </h2>
+                <?php endif ?>
+
+                <form class="form-group" method="POST" action="/view/register/registro.php">
                     <div class="row">
                         <div class="col-6">
                             <label for="name">Nome</label>

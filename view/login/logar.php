@@ -15,7 +15,7 @@ else {
     $email = $_POST['email'];
     $senha = $_POST['password'];
 
-    //Prepara a Query para buscar usuario no banco
+    //Prepara a Query para buscar usuario no bgitanco
     $sql = $banco->prepare("SELECT email, senha FROM dbo.Usuario WHERE email = '".$email."' AND senha = '".$senha."' "); 
     $sql->execute();
 
