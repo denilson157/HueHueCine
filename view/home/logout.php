@@ -1,7 +1,7 @@
 <?php include "../cabecalho.php";
 include "../acess.php";
 
-$userSession = new ACESS("/view/home/login.php");
+$userSession = new ACESS("/HUEHUECINE/view/home/login.php");
 
 $userSession->retirectIfExist();
 
@@ -23,7 +23,7 @@ $userSession->retirectIfExist();
             </div>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="../../../view/home/logout.php">Home </a>
+                    <a class="nav-link" href="../../../HUEHUECINE/view/home/logout.php">Home </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Minha Lista</a>

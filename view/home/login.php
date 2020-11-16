@@ -2,7 +2,7 @@
 include "../cabecalho.php";
 include "../acess.php";
 
-$userSession = new ACESS("/view/home/logout.php");
+$userSession = new ACESS("/HUEHUECINE/view/home/logout.php");
 $userSession->retirectIfDoesntExist();
 $user = $userSession->getUser();
 
@@ -24,7 +24,7 @@ $user = $userSession->getUser();
             </div>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="../../../view/home/logout.php">Home </a>
+                    <a class="nav-link" href="../../../HUEHUECINE/view/home/logout.php">Home </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Minha Lista</a>
@@ -39,7 +39,7 @@ $user = $userSession->getUser();
             </form>
             <div class="d-flex ml-3 align-items-center">
                 <p class="px-2 mb-0">Olá, <?php if (isset($user['email']))  echo $user['email'] ?></p>
-                <a href="/view/signOut.php" class="btn btn-sm"><i class="fas fa-sign-out-alt"></i></a>
+                <a href="/HUEHUECINE/view/signOut.php" class="btn btn-sm"><i class="fas fa-sign-out-alt"></i></a>
             </div>
         </nav>
     </header>

@@ -8,6 +8,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/8455a3d02b.js" crossorigin="anonymous"></script>
 
-    <link href="/view/style.css" rel="stylesheet" />
+    <link href="/HUEHUECINE/view/style.css" rel="stylesheet" />
 
     <title>HueHueCine</title>

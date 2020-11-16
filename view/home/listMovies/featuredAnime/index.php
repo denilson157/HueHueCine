@@ -20,7 +20,7 @@ $animes = $tmdb->getTopRatedTVAnimes();
     <div class="movieRow--listarea">
         <div class="movieRow--list" id="featuredTvAnime">
             <?php foreach ($animes as $anime) : ?>
-                <a href="../../../view/infoFilm/tv/login.php?id=<?= $anime->getID() ?>">
+                <a href="../../../HUEHUECINE/view/infoFilm/tv/login.php?id=<?= $anime->getID() ?>">
                     <div class="movieRow--item">
                         <div class="movie" style="background-size:cover;
                     background-position:center;

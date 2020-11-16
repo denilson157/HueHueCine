@@ -6,7 +6,7 @@ include "../acess.php";
 
 $name = $_GET['name'];
 
-$userSession = new ACESS("/view/findFilm/logout.php?name=$name");
+$userSession = new ACESS("/HUEHUECINE/view/findFilm/logout.php?name=$name");
 $userSession->retirectIfDoesntExist();
 $user = $userSession->getUser();
 
@@ -40,7 +40,7 @@ $tvs = $tvAPI->getByName($showName);
             </div>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="../../../view/home/logout.php">Home </a>
+                    <a class="nav-link" href="../../../HUEHUECINE/view/home/logout.php">Home </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Minha Lista</a>
@@ -54,7 +54,7 @@ $tvs = $tvAPI->getByName($showName);
             </form>
             <div class="d-flex ml-3 align-items-center">
                 <p class="px-2 mb-0">Olá, <?php if (isset($user['email']))  echo $user['email'] ?></p>
-                <a href="/view/signOut.php" class="btn btn-sm"><i class="fas fa-sign-out-alt"></i></a>
+                <a href="/HUEHUECINE/view/signOut.php" class="btn btn-sm"><i class="fas fa-sign-out-alt"></i></a>
             </div>
         </nav>
     </header>

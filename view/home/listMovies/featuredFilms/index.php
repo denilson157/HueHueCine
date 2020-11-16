@@ -22,7 +22,7 @@ $movies = $tmdb->getTopRatedMovies();
         <div class="movieRow--list" id="featuredFilms">
             <?php foreach ($movies as $movie) : ?>
                 <div class="movieRow--item">
-                    <a href="../../../view/infoFilm/movie/login.php?id=<?= $movie->getID() ?>">
+                    <a href="../../../HUEHUECINE/view/infoFilm/movie/login.php?id=<?= $movie->getID() ?>">
                         <div class="movie" style="background-size:cover;
                     background-position:center;
                     background-image: url(https://image.tmdb.org/t/p/w400<?= $movie->getPoster() ?>)
@@ -38,7 +38,9 @@ $movies = $tmdb->getTopRatedMovies();
                                     </div>
                                     <div class="movie--info-year">
                                         <?= $movie->getYear() ?>
-
+                                    </div>
+                                    <div class="movie--add-list">
+                                        <i class="fas fa-plus" title="Minha Lista"></i>
                                     </div>
                                 </div>
                             </div>

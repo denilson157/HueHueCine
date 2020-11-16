@@ -1,3 +1,13 @@
+
+:root{
+    --yellow: #fdbe02;
+    --yellow-dark:#b89227;
+    --green:#298732;
+    --green-dark:#26612b;
+    --white:  #ffffff;
+    --black: #071013;
+}
+
 .movieRow {
     margin-bottom: 30px;
 }
@@ -89,7 +99,7 @@
 }
 
 
-.movie--info-points, .movie--info-year{
+.movie--info-points, .movie--info-year, .movie--add-list{
     display: inline-block;
     font-size: small;
     color:white;
@@ -97,4 +107,21 @@
 
 .movie--info-points{
     color: #46d369;
+}
+
+.movie--add-list{
+    border: 2px solid var(--white);
+    color: var(--white);
+    border-radius: 5px;
+    padding: 2px;
+    transition: all ease 0.2s;
+    float: right;
+}
+
+.movie--add-list:hover{
+    transition: all ease 0.2s;
+    background-color: var(--white);
+    color: var(--black);
+    border-radius: 5px;
+    padding: 2px;
 }

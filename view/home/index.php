@@ -2,6 +2,6 @@
 session_start();
 
 if (isset($_SESSION['user']))
-    Header("Location: /view/home/login.php");
+    Header("Location: /HUEHUECINE/HUEHUECINE/view/home/login.php");
 else
-    Header("Location: /view/home/logout.php");
+    Header("Location: /HUEHUECINE/HUEHUECINE/view/home/logout.php");

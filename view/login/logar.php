@@ -18,9 +18,10 @@ else {
         $user = array_filter($credentials,  function ($user) {
             return $user['email'] == $_POST['email'];
         });
+        var_dump($user);
         $_SESSION['user'] = $user;
 
-        Header("Location: /view/home/");
+        Header("Location: /HUEHUECINE/HUEHUECINE/view/home/");
     } else {
 
         $msg = "Credenciais inválidas, tente novamente";

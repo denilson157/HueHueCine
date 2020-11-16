@@ -5,7 +5,7 @@ require_once(dirname(__FILE__) . "../../../../controller/MovieAPI.php");
 
 $id = $_GET['id'];
 
-$userSession = new ACESS("/view/infoFilm/movie/login.php?id=$id");
+$userSession = new ACESS("/HUEHUECINE/view/infoFilm/movie/login.php?id=$id");
 $userSession->retirectIfExist();
 
 $tmdb = new MOVIEApi();
@@ -37,13 +37,13 @@ $movie = $tmdb->getMovieDetail($_GET['id']);
                 </div>
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../../../view/home/logout.php">Home </a>
+                        <a class="nav-link" href="../../../HUEHUECINE/view/home/logout.php">Home </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Minha Lista</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0" method="GET" action="/view/findFilm/logout.php?">
+                <form class="form-inline my-2 my-lg-0" method="GET" action="/HUEHUECINE/view/findFilm/logout.php?">
                     <input class="form-control form-control-sm mr-sm-2 inputFind" name="name" type="text" placeholder="Pesquisar por Nome">
                     <button class="btn btn-outline-light my-2 btn-sm my-sm-0" type="submit">
                         <i class="fas fa-search"></i>

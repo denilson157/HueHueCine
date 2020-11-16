@@ -6,6 +6,6 @@ error_reporting(E_ALL);
 session_start();
 
 if ($_SESSION['user'])
-    Header("Location: /view/home/login.php");
+    Header("Location: /HUEHUECINE/view/home/login.php");
 else
-    Header("Location: /view/login/");
+    Header("Location: /HUEHUECINE/view/login/");

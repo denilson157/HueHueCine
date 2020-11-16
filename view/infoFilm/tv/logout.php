@@ -5,7 +5,7 @@ require_once(dirname(__FILE__) . "../../../../controller/TvAPI.php");
 
 $id = $_GET['id'];
 
-$userSession = new ACESS("/view/infoFilm/tv/login.php?id=$id");
+$userSession = new ACESS("/HUEHUECINE/view/infoFilm/tv/login.php?id=$id");
 $userSession->retirectIfExist();
 
 
@@ -15,7 +15,7 @@ $show = [];
 if (isset($_GET['id']))
     $show = $tmdb->getTVDetail($_GET['id']);
 else
-    Header("Location: /view/home/logout.php")
+    Header("Location: /HUEHUECINE/view/home/logout.php")
 
 
 ?>
@@ -41,21 +41,21 @@ else
                 </div>
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../../../view/home/logout.php">Home </a>
+                        <a class="nav-link" href="../../../HUEHUECINE/view/home/logout.php">Home </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Minha Lista</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0" method="GET" action="/view/findFilm/logout.php?">
+                <form class="form-inline my-2 my-lg-0" method="GET" action="/HUEHUECINE/view/findFilm/logout.php?">
                     <input class="form-control form-control-sm mr-sm-2 inputFind" name="name" type="text" placeholder="Pesquisar por Nome">
                     <button class="btn btn-outline-light my-2 btn-sm my-sm-0" type="submit">
                         <i class="fas fa-search"></i>
                     </button>
                 </form>
                 <div class="d-inline">
-                    <a href="/view/login/index.php" class="btn btn-sm btn-secondary mx-2 my-sm-0">Entrar</a>
-                    <a href="/view/register/index.php" class="btn btn-sm btn-primary my-sm-0">Cadastre-se</a>
+                    <a href="/HUEHUECINE/view/login/index.php" class="btn btn-sm btn-secondary mx-2 my-sm-0">Entrar</a>
+                    <a href="/HUEHUECINE/view/register/index.php" class="btn btn-sm btn-primary my-sm-0">Cadastre-se</a>
                 </div>
             </nav>
         </header>

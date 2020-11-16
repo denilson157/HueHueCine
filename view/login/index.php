@@ -28,7 +28,7 @@
                 <?php endif ?>
             </div>
             <div>
-                <form class="form-group" method="post" action="/view/login/logar.php">
+                <form class="form-group" method="post" action="/HUEHUECINE/HUEHUECINE/view/login/logar.php">
                     <div class="row">
                         <div class="col-12">
                             <label for="email">Email</label>
@@ -59,7 +59,7 @@
                     <div class="row">
                         <div class="mx-auto">
                             <div class="text-center">
-                                <a class="text-secondary" href="/view/home/logout"> Prosseguir sem cadastro</a>
+                                <a class="text-secondary" href="/HUEHUECINE/view/home/logout"> Prosseguir sem cadastro</a>
                             </div>
                         </div>
                     </div>

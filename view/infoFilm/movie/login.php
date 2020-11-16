@@ -5,7 +5,7 @@ require_once(dirname(__FILE__) . "../../../../controller/MovieAPI.php");
 
 $id = $_GET['id'];
 
-$userSession = new ACESS("/view/infoFilm/movie/logout.php?id=$id");
+$userSession = new ACESS("/HUEHUECINE/view/infoFilm/movie/logout.php?id=$id");
 $userSession->retirectIfDoesntExist();
 $user = $userSession->getUser();
 
@@ -36,13 +36,13 @@ $movie = $tmdb->getMovieDetail($id);
                 </div>
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../../../view/home/logout.php">Home </a>
+                        <a class="nav-link" href="../../../HUEHUECINE/view/home/logout.php">Home </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Minha Lista</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0" method="GET" action="/view/findFilm/login.php?">
+                <form class="form-inline my-2 my-lg-0" method="GET" action="/HUEHUECINE/view/findFilm/login.php?">
                     <input class="form-control form-control-sm mr-sm-2 inputFind" name="name" type="text" placeholder="Pesquisar por Nome">
                     <button class="btn btn-outline-light my-2 btn-sm my-sm-0" type="submit">
                         <i class="fas fa-search"></i>
@@ -50,7 +50,7 @@ $movie = $tmdb->getMovieDetail($id);
                 </form>
                 <div class="d-flex ml-3 align-items-center">
                     <p class="px-2 mb-0">Olá, <?php if (isset($user['email']))  echo $user['email'] ?></p>
-                    <a href="/view/signOut.php" class="btn btn-sm"><i class="fas fa-sign-out-alt"></i></a>
+                    <a href="/HUEHUECINE/view/signOut.php" class="btn btn-sm"><i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </nav>
         </header>
