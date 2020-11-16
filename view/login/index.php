@@ -28,7 +28,7 @@
                 <?php endif ?>
             </div>
             <div>
-                <form class="form-group" method="post" action="/HUEHUECINE/HUEHUECINE/view/login/logar.php">
+                <form class="form-group" method="post" action="/HUEHUECINE/view/login/logar.php">
                     <div class="row">
                         <div class="col-12">
                             <label for="email">Email</label>

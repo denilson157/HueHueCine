@@ -25,7 +25,7 @@ else {
         $usuario = $sql->fetch();   //Puxa apenas 1 registro da consulta
         $_SESSION['user'] = $usuario['email']; //Da para passar outros parametros, de acordo com retorno do SELECT
 
-        Header("Location: /view/home/");
+        Header("Location: /HUEHUECINE/view/home/");
 
     }else{
         

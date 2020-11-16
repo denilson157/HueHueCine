@@ -4,11 +4,6 @@ require_once "ApiBaseObject.php";
 
 class ApiBaseObject
 {
-    const MEDIA_TYPE_MOVIE = 'movie';
-    const CREDITS_TYPE_CAST = 'cast';
-    const CREDITS_TYPE_CREW = 'crew';
-    const MEDIA_TYPE_TV = 'tv';
-
     protected $_data;
 
     public function __construct($data) {

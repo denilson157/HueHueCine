@@ -26,7 +26,7 @@
                     </h2>
                 <?php endif ?>
 
-                <form class="form-group" method="POST" action="/view/register/registro.php">
+                <form class="form-group" method="POST" action="/HUEHUECINE/view/register/registro.php">
                     <div class="row">
                         <div class="col-6">
                             <label for="name">Nome</label>
