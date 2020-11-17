@@ -18,6 +18,9 @@ $show = $tmdb->getTVDetail($id);
 
 <link href="../style.css" rel="stylesheet" />
 <link href="./style.css" rel="stylesheet" />
+
+<script src="/HUEHUECINE/assets/jQuery.js" defer></script>
+<script src="/HUEHUECINE/view/infoFilm/tv/scripts.js" defer></script>
 </header>
 
 <body style="background-size:cover;
@@ -124,11 +127,48 @@ $show = $tmdb->getTVDetail($id);
                             </div>
                         </div>
                     </div>
-                    <div class="row mt-5">
-                        <div class="mx-auto">
-                            <p class="text-center h3 mb-0">Você já assitiu?</p>
-                            <p class="text-center text-secondary h5">Faça o login e adicione <?= $show->getName() ?> a sua lista de assistidos.</p>
+                    <section class="mt-5">
+                        <p class="h4 text-primary d-block">Comentários</p>
+                        <p class="text-secondary h5">O que quem assistiu tem comentado sobre este filme?</p>
+
+                        <div class="row mx-0 py-2">
+                            <div class="info-user">
+                                <span class="text-green h5">
+                                    Denilson pereira
+                                </span>
+                                <span class="text-secondary">
+                                    28/09/2020 às 22:00
+                                </span>
+                            </div>
+                            <p class="text-secondary mb-1">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo possimus, quos labore asperiores similique temporibus animi, deleniti non doloremque necessitatibus consectetur ad eius illum doloribus molestiae porro repellat minima quasi.
+                            </p>
+                            <div class="review-user row mx-0">
+                                <div class="mr-2">
+                                    <i class="fas fa-thumbs-up text-primary"></i>
+                                    <span>450</span>
+                                </div>
+                                <div class="mx-2">
+                                    <i class="fas fa-thumbs-down text-primary"></i>
+                                    <span class="text-danger">450</span>
+                                </div>
+                            </div>
                         </div>
+
+                    </section>
+                    <div class="py-3">
+                        <p class="h6 text-primary" id="review">Escreva um comentário...</p>
+                        <form id="formReview">
+
+                            <div class="row mx-auto mb-2">
+
+                                <textarea name="newReview" id="review" cols="100" rows="2"></textarea>
+                            </div>
+                            <input type="submit" value="Escrever" form="formReview" class="btn btn-sm btn-primary" />
+                            <!-- <button class="btn btn-sm btn-primary" form="formReview" type="submit" value="sendReview">
+                                Escrever
+                            </button> -->
+                        </form>
                     </div>
                 </section>
             <?php
@@ -140,6 +180,7 @@ $show = $tmdb->getTVDetail($id);
             ?>
         </main>
     </div>
+
 </body>
 
 <html />
