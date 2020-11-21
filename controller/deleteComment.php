@@ -7,4 +7,4 @@ require_once(dirname(__FILE__) . "./CommentController.php");
 
 $comment = new CommentController();
 
-echo json_encode($comment->getComments());
+echo json_encode($comment->deleteComment());

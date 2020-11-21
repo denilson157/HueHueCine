@@ -1,6 +1,6 @@
 <?php
 
-require_once "/HUEHUECINE/model/Database.php";
+require_once(dirname(__FILE__) . "./Database.php");
 
 class User
 {
@@ -8,10 +8,15 @@ class User
     {
         global $db;
 
-        $sql = $db->query("SELECT * from usuario where email = $userEmail");
+        $sql = "SELECT * FROM Usuario WHERE email = '$userEmail'";
 
-        $reg = $sql->fetchAll();
+        $stmt = $db->prepare($sql);
 
-        return $reg;
+        $stmt->execute();
+
+        if ($stmt->rowCount() !=  0)
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        else
+            return $sql;
     }
 }

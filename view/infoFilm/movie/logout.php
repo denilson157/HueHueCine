@@ -37,7 +37,7 @@ $movie = $tmdb->getMovieDetail($_GET['id']);
                 </div>
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../../../HUEHUECINE/view/home/logout.php">Home </a>
+                        <a class="nav-link" href="/HUEHUECINE/view/home/logout.php">Home </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Minha Lista</a>

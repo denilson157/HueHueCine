@@ -20,8 +20,6 @@ class ACESS
     {
         $user = $_SESSION['user'];
 
-        $user = $user[0];
-
         return $user;
     }
 

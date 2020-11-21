@@ -1,5 +1,9 @@
 <?php
 
-session_start();
-var_dump($_SESSION['user']);
-var_dump($_POST['comment']);
+header("Content-Type: application/json");
+
+require_once(dirname(__FILE__) . "./CommentController.php");
+
+$comment = new CommentController();
+
+echo json_encode($comment->insertComment());

@@ -1,35 +1,79 @@
-$('#formReview').submit(function (e) {
+$('#formReview').submit(e => {
     e.preventDefault();
 
-    const comment = $('#newReview').val();
+    const comment = $('textarea#review').val();
+    const movieId = $('#idMovieTv').val();
 
-    //console.log(u_name, u_comment);
-    $.ajax({
-        url: '/HUEHUECINE/controller/insertComment.php',
-        method: 'POST',
-        data: { comment: comment },
-        dataType: 'json'
-    }).done(function (result) {
-        $('#name').val('');
-        $('#comment').val('');
-        console.log(result);
-        getComments();
-    });
+    if ((comment !== "" && comment !== undefined) && (movieId !== "" && movieId !== undefined))
+        $.ajax({
+            url: '/HUEHUECINE/controller/insertComment.php',
+            method: 'POST',
+            data: { comment: comment, movieId: parseInt(movieId) },
+            dataType: 'json'
+        }).done(() => {
+            $('textarea#review').val('');
+            getComments();
+        });
 });
 
-function getComments() {
-    console.log('tee')
-    $.ajax({
-        url: '/HUEHUECINE/controller/getComment.php',
-        method: 'GET',
-        dataType: 'json'
-    }).done(function (result) {
-        console.log(result);
+const getComments = () => {
+    const movieId = $('#idMovieTv').val();
+    const emailUser = $('#emailUser').val();
 
-        for (var i = 0; i < result.length; i++) {
-            $('.box_comment').prepend('<div class="b_comm"><h4>' + result[i].name + '</h4><p>' + result[i].comment + '</p></div>');
-        }
-    });
+    if ((movieId !== "" && movieId !== undefined))
+        $.ajax({
+            url: '/HUEHUECINE/controller/getComment.php',
+            method: 'POST',
+            dataType: 'json',
+            data: { movieId: parseInt(movieId) },
+        }).done(result => {
+            console.log(result)
+            let box_comm = document.querySelector('.box-comment');
+            while (box_comm.firstChild) {
+                box_comm.firstChild.remove();
+            }
+
+            if (result != null)
+                result.forEach(element => {
+
+                    $('.box-comment')
+                        .append(
+                            '<div class="mx-0 py-2">' +
+                            '<div class="info-user">' +
+                            '<span class="text-green h5 mr-2">' +
+                            element.nome + " " + element.sobrenome +
+                            '</span>' +
+                            '<span class="text-secondary">' +
+                            new Date(element.dataComentario).toLocaleDateString("pt-BR") +
+                            '</span>' +
+                            (emailUser == element.email ?
+                                ('<span class="text-danger" onclick="removeComment(' + element.id + ')" style="cursor:pointer">' +
+                                    ' Excluir' +
+                                    '</span>')
+                                :
+                                "")
+                            +
+                            '</div>' +
+                            '<p class="text-secondary mb-1">' +
+                            element.comentario +
+                            '</p>' +
+                            '</div>'
+                        )
+                });
+
+        });
+}
+
+const removeComment = idComment => {
+    if (idComment !== "" && idComment !== undefined && !isNaN(parseInt(idComment)))
+        $.ajax({
+            url: '/HUEHUECINE/controller/deleteComment.php',
+            method: 'POST',
+            data: { commentId: parseInt(idComment) },
+            dataType: 'json'
+        }).done(() => {
+            getComments();
+        });
 }
 
 getComments();
