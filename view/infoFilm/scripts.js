@@ -27,7 +27,7 @@ const getComments = () => {
             dataType: 'json',
             data: { movieId: parseInt(movieId) },
         }).done(result => {
-            console.log(result)
+            
             let box_comm = document.querySelector('.box-comment');
             while (box_comm.firstChild) {
                 box_comm.firstChild.remove();

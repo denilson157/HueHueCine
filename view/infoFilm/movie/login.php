@@ -16,6 +16,9 @@ $movie = $tmdb->getMovieDetail($id);
 
 <link href="../style.css" rel="stylesheet" />
 <link href="./style.css" rel="stylesheet" />
+<script src="/HUEHUECINE/assets/jQuery.js" defer></script>
+<script src="/HUEHUECINE/view/infoFilm/scripts.js" defer></script>
+
 </header>
 
 <body style="background-size:cover;
@@ -36,7 +39,7 @@ $movie = $tmdb->getMovieDetail($id);
                 </div>
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../../../HUEHUECINE/view/home/logout.php">Home </a>
+                        <a class="nav-link" href="/HUEHUECINE/view/home/logout.php">Home </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Minha Lista</a>
@@ -122,11 +125,28 @@ $movie = $tmdb->getMovieDetail($id);
                             </div>
                         </div>
                     </div>
-                    <div class="row mt-5">
-                        <div class="mx-auto">
-                            <p class="text-center h3 mb-0">Você já assitiu?</p>
-                            <p class="text-center text-secondary h5">Faça o login e adicione <?= $movie->getTitle() ?> a sua lista de assistidos.</p>
+                    <section class="mt-5">
+                        <p class="h4 text-primary d-block">Comentários</p>
+                        <p class="text-secondary h5">O que quem assistiu tem comentado sobre este filme?</p>
+
+                        <div class="box-comment">
+
                         </div>
+
+                    </section>
+                    <div class="py-3">
+                        <p class="h6 text-primary" id="review">Escreva um comentário...</p>
+                        <form id="formReview">
+
+                            <div class="row mx-auto mb-2">
+                                <textarea name="newReview" id="review" cols="100" rows="2"></textarea>
+                                <input type="hidden" id="idMovieTv" value="<?= $id ?>">
+                                <input type="hidden" id="emailUser" value="<?= $user ?>">
+                            </div>
+                            <button class="btn btn-sm btn-primary" form="formReview" type="submit">
+                                Escrever
+                            </button>
+                        </form>
                     </div>
                 </section>
             <?php

@@ -4,6 +4,7 @@
     --yellow-dark:#b89227;
     --green:#298732;
     --green-dark:#26612b;
+    --green-light:#45ca52;    
     --white:  #ffffff;
     --black: #071013;
     --gray: #707070;
@@ -20,6 +21,10 @@
 
 .text-secondary{
     color: var(--gray) !important;
+}
+
+.text-green{
+    color: var(--green-light) !important;
 }
 
 .bgPoster{

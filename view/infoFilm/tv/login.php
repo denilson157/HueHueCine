@@ -20,7 +20,7 @@ $show = $tmdb->getTVDetail($id);
 <link href="./style.css" rel="stylesheet" />
 
 <script src="/HUEHUECINE/assets/jQuery.js" defer></script>
-<script src="/HUEHUECINE/view/infoFilm/tv/scripts.js" defer></script>
+<script src="/HUEHUECINE/view/infoFilm/scripts.js" defer></script>
 </header>
 
 <body style="background-size:cover;
