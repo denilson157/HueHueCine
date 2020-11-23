@@ -12,12 +12,13 @@ require_once '../../config/database.php'; //Solicita Arquivo para conexão com b
 //Pega valores do formulario
 $nome = $_POST['name'];
 $sobrenome = $_POST['lastName'];
-$email = $_POST['email'];
-$datan = '1998-07-10'; // Pegar a data com split
+$email = $_POST['email']; 
 $telefone = $_POST['tel'];
 $senha = $_POST['password'];
 $senhaverify = $_POST['verifyPassword'];
 
+$data = explode('-' ,$_POST['dateBirth']);
+$datan = $data[0] . '-' . $data[2] . '-' . $data[1]; // 0 => Ano, 2=> Dia, 1=> Més, ----- Está invertido dia e mes pois é a forma como o banco deve receber
 
 //Verifica se as senhas são iguais
 if($senha == $senhaverify){
@@ -42,14 +43,14 @@ $sqlverif->execute();
         $sql->bindParam(':senha', $senha);
 
         //Verifica a execução do cadastro
-        if( $sql->execute() ){ //Cao positivo
+        if( $sql->execute() ){ //Caso positivo
 
             $msg = 'Email cadastrado com sucesso.';
             include '../login/index.php';
 
         }else{//Falha na execução do cadastro ---------- Arrumar mensagem de erro depois
 
-            //$msg = 'Erro ao cadastrar, tente novamente mais tarde.';
+            $msg = 'Erro ao cadastrar, tente novamente mais tarde.';
             $arr = $sql->errorInfo();
             print_r($arr);
             include './index.php';  
