@@ -1,6 +1,6 @@
 <?php
 
-require_once(dirname(__FILE__) . "/../model/Comment.php");
+require_once(dirname(__FILE__) . "/../../model/Comment.php");
 
 session_start();
 
