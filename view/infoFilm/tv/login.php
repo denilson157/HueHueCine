@@ -118,6 +118,24 @@ $show = $tmdb->getTVDetail($id);
                                     </p>
                                 </div>
 
+                                <section>
+                                    <p class="h4 text-primary d-block">Adicione a sua lista:</p>
+
+                                    <form id="formLista">
+                                        <div class="row mx-auto mb-2">
+                                            <select id="estadoLista">
+                                                <option value="Pretendo">Pretendo</option>
+                                                <option value="Assistindo">Assistindo</option>
+                                                <option value="Completo">Completo</option>
+                                            </select>
+                                            <button class="ml-1 btn btn-sm btn-primary" form="formlista" type="submit">
+                                                Adicionar
+                                            </button>
+                                        </div>
+                                    </form>
+
+                                </section>
+
                             </div>
                             <div class="Sinopse py-2 ">
                                 <h4 class="h4 text-primary">Sinopse</h4>
@@ -127,6 +145,9 @@ $show = $tmdb->getTVDetail($id);
                             </div>
                         </div>
                     </div>
+
+
+
                     <section class="mt-5">
                         <p class="h4 text-primary d-block">Comentários</p>
                         <p class="text-secondary h5">O que quem assistiu tem comentado sobre este filme?</p>

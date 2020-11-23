@@ -1,3 +1,4 @@
+//#region Comentario
 $('#formReview').submit(e => {
     e.preventDefault();
 
@@ -77,3 +78,21 @@ const removeComment = idComment => {
 }
 
 getComments();
+//#endregion
+
+
+//#region Lista
+$('#formLista').submit(e =>{
+    e.preventDefault();
+    /*const estado = $('#estado').val();
+    const movieId = $('#idMovieTv').val();
+
+    console.log(estado);
+    //if(  ){
+
+    //}*/
+    alert("gay");
+
+});
+
+//#endregion
