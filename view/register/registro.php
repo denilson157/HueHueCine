@@ -22,7 +22,9 @@ $datan = $data[0] . '-' . $data[2] . '-' . $data[1]; // 0 => Ano, 2=> Dia, 1=> M
 
 //Verifica se as senhas são iguais
 if($senha == $senhaverify){
-    
+//Encripta a Senha
+$senha = password_hash($_POST['password'], PASSWORD_DEFAULT); //encriptação a Senha
+
 //Prepara o sql para vericação de cadastro
 $sqlverif = $banco->prepare("SELECT email FROM dbo.Usuario WHERE email = '".$email."' "); 
 $sqlverif->execute();
