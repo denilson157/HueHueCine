@@ -2,7 +2,7 @@
 
 header("Content-Type: application/json");
 
-require_once(dirname(__FILE__) . "./CommentController.php");
+require_once(dirname(__FILE__) . "./Comment/CommentController.php");
 
 $comment = new CommentController();
 

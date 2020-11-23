@@ -6,7 +6,7 @@ $('#formReview').submit(e => {
 
     if ((comment !== "" && comment !== undefined) && (movieId !== "" && movieId !== undefined))
         $.ajax({
-            url: '/HUEHUECINE/controller/insertComment.php',
+            url: '/HUEHUECINE/controller/comment/insertComment.php',
             method: 'POST',
             data: { comment: comment, movieId: parseInt(movieId) },
             dataType: 'json'
@@ -22,12 +22,12 @@ const getComments = () => {
 
     if ((movieId !== "" && movieId !== undefined))
         $.ajax({
-            url: '/HUEHUECINE/controller/getComment.php',
+            url: '/HUEHUECINE/controller/comment/getComment.php',
             method: 'POST',
             dataType: 'json',
             data: { movieId: parseInt(movieId) },
         }).done(result => {
-            
+
             let box_comm = document.querySelector('.box-comment');
             while (box_comm.firstChild) {
                 box_comm.firstChild.remove();
@@ -46,12 +46,12 @@ const getComments = () => {
                             '<span class="text-secondary">' +
                             new Date(element.dataComentario).toLocaleDateString("pt-BR") +
                             '</span>' +
-                            (emailUser == element.email ?
+                            (emailUser == element.email &&
                                 ('<span class="text-danger" onclick="removeComment(' + element.id + ')" style="cursor:pointer">' +
                                     ' Excluir' +
-                                    '</span>')
-                                :
-                                "")
+                                '</span>'
+                                )
+                            )
                             +
                             '</div>' +
                             '<p class="text-secondary mb-1">' +
@@ -67,7 +67,7 @@ const getComments = () => {
 const removeComment = idComment => {
     if (idComment !== "" && idComment !== undefined && !isNaN(parseInt(idComment)))
         $.ajax({
-            url: '/HUEHUECINE/controller/deleteComment.php',
+            url: '/HUEHUECINE/controller/comment/deleteComment.php',
             method: 'POST',
             data: { commentId: parseInt(idComment) },
             dataType: 'json'
