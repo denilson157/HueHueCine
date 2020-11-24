@@ -13,6 +13,8 @@ $tmdb = new TVSHOWApi();
 
 $show = $tmdb->getTVDetail($id);
 
+$typeMTV = "tv";
+
 
 ?>
 
@@ -122,15 +124,16 @@ $show = $tmdb->getTVDetail($id);
                                     <p class="h4 text-primary d-block">Adicione a sua lista:</p>
 
                                     <form id="formLista">
-                                        <div class="row mx-auto mb-2">
+                                        <div class="row mx-auto">
                                             <select id="estadoLista">
-                                                <option value="Pretendo">Pretendo</option>
-                                                <option value="Assistindo">Assistindo</option>
-                                                <option value="Completo">Completo</option>
+                                                <option value="1">Pretendo</option>
+                                                <option value="2">Assistindo</option>
+                                                <option value="3">Completo</option>
                                             </select>
-                                            <button class="ml-1 btn btn-sm btn-primary" form="formlista" type="submit">
-                                                Adicionar
-                                            </button>
+                                            <input type="hidden" id="typeMTV" value="<?= $typeMTV ?>">
+                                            <div id="submits">
+                                                
+                                            </div>
                                         </div>
                                     </form>
 

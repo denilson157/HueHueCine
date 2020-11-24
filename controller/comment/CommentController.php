@@ -30,7 +30,6 @@ class CommentController
 
             $return = $commentClass->insertComment($this->user, $this->comment, $this->movie);
 
-
             if ($return->rowCount() != 0)
                 return 200;
             else

@@ -5,6 +5,8 @@
     --yellow-dark:#b89227;
     --green:#298732;
     --green-dark:#26612b;
+    --blue:#007bff;
+    --blue-dark: #004fa3;
     --white:  #ffffff;
     --black: #071013;
 }
@@ -74,6 +76,37 @@ body{
     color: var(--white) !important;
     transition: all 1s;
 }
+
+/* TERCEIRO BOTAO */
+.btn-warning {
+    background-color: var(--blue);
+    border-color: var(--blue);
+    color: var(--white);
+}
+
+.btn-warning:hover{
+    background-color: var(--blue-dark);
+    border-color: var(--blue-dark);
+    color: var(--white);
+    transition: all 1s;
+}
+
+.btn-warning:focus{
+    box-shadow: none;
+    background-color: var(--blue-dark); 
+    border-color: var(--blue-dark);
+    color: var(--white);
+    transition: all 1s;
+}
+
+.btn-warning:active{
+    box-shadow: none !important;
+    background-color: var(--blue-dark) !important;
+    border-color: var(--blue-dark) !important;
+    color: var(--white) !important;
+    transition: all 1s;
+}
+
 
 
 .container-form{
