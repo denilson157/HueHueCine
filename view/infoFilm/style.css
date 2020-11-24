@@ -96,7 +96,7 @@ body{
     background-color: var(--blue-dark); 
     border-color: var(--blue-dark);
     color: var(--white);
-    transition: all 1s;
+    transition: all 2s;
 }
 
 .btn-warning:active{
