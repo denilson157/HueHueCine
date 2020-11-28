@@ -70,22 +70,18 @@ class Lista
         $userId = (int)$userId[0]['id']; // Pega id do usuario
 
         $movieId = $movieId;
+          
 
-        if ($typeMTV == 'tv') { //Verifica se é tipo TV ou Filme e faz a consulta de acordo
+        if ($typeMTV === 'tv') { //Verifica se é tipo TV ou Filme e faz a consulta de acordo
             $stmt = $db->prepare("SELECT id, idStatus FROM ListaSerie WHERE idUsuario = :userId and idFilme = :filmId ");
         } else {
-            $stmt = $db->prepare("SELECT id, idStatus FROM ListaFilme WHERE idUsuario = :userID and idFilme = :filmId ");
+            $stmt = $db->prepare(" SELECT id, idStatus FROM ListaFilme WHERE idUsuario = :userId and idFilme = :filmId ");
         }
 
         $stmt->bindParam(':userId', $userId);
         $stmt->bindParam(':filmId', $movieId);
 
-
         $stmt->execute();
-
-        //  $teste = array("a" => $userId, "b" => $typeMTV, "c" => $movieId);
-        //  return $teste;
-
         if ($stmt->rowCount() != 0) {
             return $stmt->fetch();
         }

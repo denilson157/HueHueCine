@@ -1,7 +1,4 @@
 <?php
-require_once(dirname(__FILE__) . "/../../model/List.php");
-require_once(dirname(__FILE__) . "/../../model/ListDB.php");
-session_start();
 
 class ListController
 {
@@ -49,9 +46,9 @@ class ListController
             $listClass = new Lista();
 
             $return = $listClass->getList($this->user, $this->movie, $this->typeMTV);
+           
 
-
-            return $return;
+           return $return;
         }
     }
 

@@ -187,7 +187,7 @@ const verifyList = () => {
     const typeMTV = $('#typeMTV').val();
 
     if ((movieId !== "" && movieId !== undefined)) {
-
+        
         $.ajax(
             {
                 url: '/HUEHUECINE/controller/list/getList.php',
@@ -195,7 +195,6 @@ const verifyList = () => {
                 data: { typeMTV: typeMTV, movieId: parseInt(movieId) },
                 dataType: 'json'
             }).done(result => {
-
                 console.log(result);
                 //Ja esta adicionado na lista?
                 if (result != null) { //Caso Positivo
