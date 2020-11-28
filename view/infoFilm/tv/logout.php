@@ -43,9 +43,6 @@ else
                     <li class="nav-item">
                         <a class="nav-link" href="/HUEHUECINE/view/home/logout.php">Home </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Minha Lista</a>
-                    </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0" method="GET" action="/HUEHUECINE/view/findFilm/logout.php?">
                     <input class="form-control form-control-sm mr-sm-2 inputFind" name="name" type="text" placeholder="Pesquisar por Nome">

@@ -42,7 +42,7 @@ $movie = $tmdb->getMovieDetail($id);
                         <a class="nav-link" href="/HUEHUECINE/view/home/logout.php">Home </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Minha Lista</a>
+                        <a class="nav-link" href="/HUEHUECINE/view/myList/login.php">Minha Lista</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0" method="GET" action="/HUEHUECINE/view/findFilm/login.php?">
