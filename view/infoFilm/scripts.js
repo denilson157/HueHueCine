@@ -89,6 +89,27 @@ getComments();
 
 
 //#region Lista
+//OBS:
+//Discutir sobre o fato de verificar a lista toda vez que houver uma mudança na lista ao ver se mudar estaticamente...
+//Pode resolver o problema de retorno do banco das solicitações vierem vazias
+//Discutir sobre como adicionar temporada/Ep nos TVs, inicalmente conclui que deve se ter scripts diferentes para melhor organização, porém não é uma necessidade.
+
+//Função para Controle Visual dos Botoes da Lista
+function atualizaBtns(btnclickado) {
+
+    if(btnclickado == "submitAdd"){
+        document.getElementById('submitAdd').style.display = 'none';
+        document.getElementById('submitAtt').style.display = "";
+        document.getElementById('submitRem').style.display = "";
+        console.log("Entrou aqui");
+    }else{
+        document.getElementById('submitAdd').style.display = "";
+        document.getElementById('submitAtt').style.display = "none";
+        document.getElementById('submitRem').style.display = "none";
+        console.log("Entrou aqui2");
+    }
+    
+}
 
 //Botão para Adicionar
 $('#submitAdd').click(e => {
@@ -107,18 +128,13 @@ $('#submitAdd').click(e => {
             method: 'POST',
             data: { state: estado, typeMTV: typeMTV, movieId: parseInt(movieId) },
             dataType: 'json'
-        }).done(() => {
-            //Atualiza os botões da tela
-            document.getElementById('submitAdd').remove();
-            $('#submits').append(
-                //Botão para Atualizar estado da Lista
-                '<button class="ml-1 btn btn-sm btn-secondary" form="formLista" type="submit" id="submitAtt">'
-                + 'Atualizar' +
-                '</button>' +
-                //Botão para Atualizar estado da Lista
-                '<button class="ml-1 btn btn-sm btn-warning" form="formLista" type="submit" id="submitRem">'
-                + 'Remover' +
-                '</button>');
+        }).done(result => {
+            //Trabalhar se a solitação foi efetuada com sucesso
+            //
+
+            //Atualiza botões na tela
+            atualizaBtns("submitAdd"); // Puxar dados pelo evento.
+            
         });
     }
 });
@@ -139,8 +155,7 @@ $('#submitAtt').click(e => {
             method: 'POST',
             data: { state: estado, typeMTV: typeMTV, movieId: parseInt(movieId) },
             dataType: 'json'
-        }).done(result => {
-            //Colocar mensagem/alert para sinalizar que foi atualizado com sucesso.
+        }).done( ()=> {
             alert("Atualizado com sucesso!");
 
         });
@@ -164,16 +179,12 @@ $('#submitRem').click(e => {
             data: { state: estado, typeMTV: typeMTV, movieId: parseInt(movieId) },
             dataType: 'json'
         }).done(result => {
-            //Fazer regra com base no retorno => Para isso verificar como vem o retorno do delete
+            //Trabalhar se a solitação foi efetuada com sucesso
+            //
 
-            //Atualiza os botões da tela
-            document.getElementById('submitAtt').remove();
-            document.getElementById('submitRem').remove();
-            $('#submits').append(
-                //Botão para Adicionar na Lista
-                '<button class="ml-1 btn btn-sm btn-primary" form="formLista" type="submit" id="submitAdd">'
-                + 'Adicionar' +
-                '</button>');
+            //Atualiza botões na tela
+            atualizaBtns("submitRem");
+
         });
     }
 });
@@ -198,39 +209,23 @@ const verifyList = () => {
                 console.log("Verificou");
 
                 //Ja esta adicionado na lista?
-                if (result != null) {
+                if (result != null) { //Caso Positivo
 
-                    //Remove Botão para adicionar caso ele exista
-                    if (document.getElementById('submitAdd') != null) { document.getElementById('submitAdd').remove(); }
-
-                    //Adiciona os botões para gerenciar lista
-                    $('#submits').append(
-                        //Botão para Atualizar estado da Lista
-                        '<button class="ml-1 btn btn-sm btn-secondary" form="formLista" type="submit" id="submitAtt">'
-                        + 'Atualizar' +
-                        '</button>' +
-                        //Botão para Atualizar estado da Lista
-                        '<button class="ml-1 btn btn-sm btn-warning" form="formLista" type="submit" id="submitRem">'
-                        + 'Remover' +
-                        '</button>');
+                    //Atualzia Botões na tela
+                    atualizaBtns("submitAdd"); //Add pois se ele existe na lista, deve ser passado como parametros submitAdd na função
 
                     //Seta opção da select option de acordo com retorno
                     document.getElementById('estadoLista').value = result['idStatus'];
 
+                }
+                else { //Caso Negativo
 
-                    //Não Está na Lista
-                } else {
-                    $('#submits').append(
-                        //Botão para Atualizar estado da Lista
-                        '<button class="ml-1 btn btn-sm btn-primary" form="formLista" type="submit" id="submitAdd">'
-                        + 'Adicionar' +
-                        '</button>');
+                    //Atualzia Botões na tela
+                    atualizaBtns("submitRem"); //Rem pois se ele não existe na lista, deve ser passado como parametros submitRem na função
                     console.log("Ta não pai");
                 }
-
             });
     }
-
 }
 
 //#endregion

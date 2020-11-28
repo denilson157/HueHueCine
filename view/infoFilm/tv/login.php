@@ -132,7 +132,9 @@ $typeMTV = "tv";
                                             </select>
                                             <input type="hidden" id="typeMTV" value="<?= $typeMTV ?>">
                                             <div id="submits">
-
+                                            <button class="ml-1 btn btn-sm btn-primary" form="formLista" type="submit" id="submitAdd">Adicionar</button>
+                                            <button class="ml-1 btn btn-sm btn-secondary" form="formLista" type="submit" id="submitAtt">Atualizar</button>
+                                            <button class="ml-1 btn btn-sm btn-warning" form="formLista" type="submit" id="submitRem">Remover</button>
                                             </div>
                                         </div>
                                     </form>
