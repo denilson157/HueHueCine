@@ -12,6 +12,8 @@ $user = $userSession->getUser();
 $tmdb = new MOVIEApi();
 $movie = $tmdb->getMovieDetail($id);
 
+$typeMTV = "film";
+
 ?>
 
 <link href="../style.css" rel="stylesheet" />
@@ -114,6 +116,27 @@ $movie = $tmdb->getMovieDetail($id);
                                         ?>
                                     </p>
                                 </div>
+
+                                <section>
+                                    <p class="h4 text-primary d-block">Adicione a sua lista:</p>
+
+                                    <form id="formLista">
+                                        <div class="row mx-auto">
+                                            <select id="estadoLista">
+                                                <option value="1">Pretendo</option>
+                                                <option value="2">Assistindo</option>
+                                                <option value="3">Completo</option>
+                                            </select>
+                                            <input type="hidden" id="typeMTV" value="<?= $typeMTV ?>">
+                                            <div id="submits">
+                                                <button class="ml-1 btn btn-sm btn-primary" form="formLista" type="submit" id="submitAdd">Adicionar</button>
+                                                <button class="ml-1 btn btn-sm btn-secondary" form="formLista" type="submit" id="submitAtt">Atualizar</button>
+                                                <button class="ml-1 btn btn-sm btn-warning" form="formLista" type="submit" id="submitRem">Remover</button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </section>
 
 
                             </div>

@@ -196,6 +196,7 @@ const verifyList = () => {
                 dataType: 'json'
             }).done(result => {
 
+                console.log(result);
                 //Ja esta adicionado na lista?
                 if (result != null) { //Caso Positivo
 
