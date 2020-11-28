@@ -48,10 +48,8 @@ $user = $userSession->getUser();
         <section id="maisAvaliados" class="container-fluid">
             <div class="lists">
                 <?php
-                include './listMovies/onTheAir/index.php';
                 include './listMovies/featuredFilms/index.php';
                 include './listMovies/featuredTV/index.php';
-                include './listMovies/featuredAnime/index.php';
                 ?>
             </div>
         </section>

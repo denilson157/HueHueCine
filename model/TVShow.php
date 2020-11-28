@@ -1,8 +1,8 @@
 <?php
 
-require_once "ApiBaseObject.php";
+require_once "ApiBaseTMDB.php";
 
-class TVShow extends ApiBaseObject
+class TVShow extends ApiBaseTMDB
 {
     public function getName()
     {

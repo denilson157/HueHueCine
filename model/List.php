@@ -1,14 +1,41 @@
 <?php
 
-use function PHPSTORM_META\type;
-
 header("Content-Type: application/json");
 
 require_once(dirname(__FILE__) . "./User.php");
 require_once(dirname(__FILE__) . "./Database.php");
 
-class Lista{
-    public function insertList($userEmail, $state, $movieId, $typeMTV){
+class Lista
+{
+
+    public function getListByUser($userEmail, $typeMTV)
+    {
+        global $db;
+        $tableConsulta = "ListaFilme";
+        $user = new User();
+
+        $userId = $user->returnUser($userEmail);
+
+        if ($typeMTV == 'tv')
+            $tableConsulta = "ListaSerie";
+
+
+        $stmt = $db->prepare("SELECT idFilme FROM " . $tableConsulta . " WHERE idUsuario = :userId");
+
+        $userId = (int)$userId[0]['id'];
+
+        $stmt->bindParam(':userId', $userId);
+
+        $stmt->execute();
+
+        if ($stmt->rowCount() != 0) {
+            return $stmt->fetch();
+        }
+        return null;
+    }
+
+    public function insertList($userEmail, $state, $movieId, $typeMTV)
+    {
 
         global $db;
 
@@ -16,12 +43,12 @@ class Lista{
 
         $userId = $user->returnUser($userEmail);
 
-        if($typeMTV === 'tv'){
+        if ($typeMTV === 'tv') {
             $stmt = $db->prepare('INSERT INTO ListaSerie (idFilme, idUsuario, idStatus) VALUES (:filmId, :userId, :stateId)');
-        }else{
+        } else {
             $stmt = $db->prepare('INSERT INTO ListaFilme (idFilme, idUsuario, idStatus) VALUES (:filmId, :userId, :stateId)');
         }
-        
+
         $movieId = $movieId;
         $userId = (int)$userId[0]['id'];
 
@@ -32,7 +59,6 @@ class Lista{
 
 
         return $stmt;
-
     }
 
     public function getList($userEmail, $movieId, $typeMTV)
@@ -45,22 +71,22 @@ class Lista{
 
         $movieId = $movieId;
 
-        if( $typeMTV == 'tv' ){//Verifica se é tipo TV ou Filme e faz a consulta de acordo
+        if ($typeMTV == 'tv') { //Verifica se é tipo TV ou Filme e faz a consulta de acordo
             $stmt = $db->prepare("SELECT id, idStatus FROM ListaSerie WHERE idUsuario = :userId and idFilme = :filmId ");
-       }else{
-           $stmt = $db->prepare("SELECT id, idStatus FROM ListaFilme WHERE idUsuario = :userID and idFilme = :filmId ");
+        } else {
+            $stmt = $db->prepare("SELECT id, idStatus FROM ListaFilme WHERE idUsuario = :userID and idFilme = :filmId ");
         }
 
         $stmt->bindParam(':userId', $userId);
         $stmt->bindParam(':filmId', $movieId);
-        
-        
+
+
         $stmt->execute();
 
-      //  $teste = array("a" => $userId, "b" => $typeMTV, "c" => $movieId);
-      //  return $teste;
+        //  $teste = array("a" => $userId, "b" => $typeMTV, "c" => $movieId);
+        //  return $teste;
 
-        if ($stmt->rowCount() != 0){
+        if ($stmt->rowCount() != 0) {
             return $stmt->fetch();
         }
         return null;
@@ -76,9 +102,9 @@ class Lista{
 
         $movieId = $movieId;
 
-        if( $typeMTV == 'tv' ){//Verifica se é tipo TV ou Filme e faz a consulta de acordo
+        if ($typeMTV == 'tv') { //Verifica se é tipo TV ou Filme e faz a consulta de acordo
             $stmt = $db->prepare("DELETE FROM ListaSerie where idUsuario = :userId and idFilme = :filmId ");
-        }else{
+        } else {
             $stmt = $db->prepare("DELETE FROM ListaFilme where idUsuario = :userId and idFilme = :filmId ");
         }
 
@@ -104,10 +130,10 @@ class Lista{
 
         $movieId = $movieId;
 
-        if( $typeMTV == 'tv' ){//Verifica se é tipo TV ou Filme e faz a consulta de acordo
-            $stmt = $db->prepare("UPDATE ListaSerie SET idStatus = 3 WHERE idUsuario = :userId and idFilme = :filmId ");
-        }else{
-            $stmt = $db->prepare("UPDATE ListaFilme SET idStatus = 3 WHERE idUsuario = :userId and idFilme = :filmId ");
+        if ($typeMTV == 'tv') { //Verifica se é tipo TV ou Filme e faz a consulta de acordo
+            $stmt = $db->prepare("UPDATE ListaSerie SET idStatus = 3 WHERE idUsuario = :userId and idFilme = :filmId");
+        } else {
+            $stmt = $db->prepare("UPDATE ListaFilme SET idStatus = 3 WHERE idUsuario = :userId and idFilme = :filmId");
         }
 
         $stmt->bindParam(':userId', $userId);

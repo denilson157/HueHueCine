@@ -1,8 +1,8 @@
 <?php
 
-require_once "ApiBaseObject.php";
+require_once "ApiBaseTMDB.php";
 
-class Movie extends ApiBaseObject
+class Movie extends ApiBaseTMDB
 {
 	public function getOriginalTitle()
 	{

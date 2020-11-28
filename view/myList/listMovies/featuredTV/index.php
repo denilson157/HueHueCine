@@ -1,10 +1,24 @@
 <?php
 require_once(dirname(__FILE__) . "../../../../../controller/TvAPI.php");
+require_once(dirname(__FILE__) . "../../../../../controller/list/ListDBController.php");
 
+$controller = new ListDBController();
 
+$tvIds = $controller->getListByUser("tv");
+
+$movies = [];
 $tmdb = new TVSHOWApi();
 
-$movies = $tmdb->getTopRatedTV();
+foreach ($tvIds as $tv) {
+
+    $returnMovie = $tmdb->getTVDetail((int)$tv['idFilme']);
+
+    array_push(
+        $movies,
+        $returnMovie
+    );
+}
+
 
 ?>
 
@@ -12,7 +26,7 @@ $movies = $tmdb->getTopRatedTV();
 <script src="./listMovies/featuredTV/index.js"></script>
 
 <div class="movieRow my-3">
-    <h2 class="h4">Séries mais assistidas.</h2>
+    <h2 class="h4">Séries</h2>
     <div class="movieRow--left" onclick="scrollFeaturedTV.handleLeft()">
         <span>
             < </span> </div> <div class="movieRow--right" onclick="scrollFeaturedTV.handleRight(<?= isset($movies) ? count($movies) : 0 ?>)">

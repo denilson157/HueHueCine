@@ -1,10 +1,17 @@
 <?php
 require_once(dirname(__FILE__) . "../../../../../controller/MovieAPI.php");
+require_once(dirname(__FILE__) . "../../../../../controller/list/ListDBController.php");
+
+$controller = new ListDBController();
+
+$movieIds = $controller->getListByUser("film");
+$tvIds = $controller->getListByUser("tv");
 
 
 $tmdb = new MOVIEApi();
 
 $movies = $tmdb->getTopRatedMovies();
+
 
 ?>
 
