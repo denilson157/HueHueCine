@@ -26,7 +26,14 @@ foreach ($tvIds as $tv) {
 <script src="./listMovies/featuredTV/index.js"></script>
 
 <div class="movieRow my-3">
-    <h2 class="h4">Séries</h2>
+    <h2 class="h4">
+        <?php
+        if ($tvIds == null)
+            echo "Adicione uma série para sua lista";
+        else
+            echo "Séries";
+        ?>
+    </h2>
     <div class="movieRow--left" onclick="scrollFeaturedTV.handleLeft()">
         <span>
             < </span> </div> <div class="movieRow--right" onclick="scrollFeaturedTV.handleRight(<?= isset($movies) ? count($movies) : 0 ?>)">

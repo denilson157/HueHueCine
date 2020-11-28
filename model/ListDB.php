@@ -28,9 +28,9 @@ class ListaDB
 
         $stmt->execute();
 
-        if ($stmt->rowCount() != 0) {
+        if ($stmt->rowCount() != 0)
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }
+
         return null;
     }
 }

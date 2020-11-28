@@ -5,12 +5,22 @@ require_once(dirname(__FILE__) . "../../../../../controller/list/ListDBControlle
 $controller = new ListDBController();
 
 $movieIds = $controller->getListByUser("film");
-$tvIds = $controller->getListByUser("tv");
-
 
 $tmdb = new MOVIEApi();
 
-$movies = $tmdb->getTopRatedMovies();
+$movies = [];
+
+
+if ($movieIds != null)
+    foreach ($movieIds as $movieId) {
+
+        $returnMovie = $tmdb->getMovieDetail((int)$movieId['idFilme']);
+
+        array_push(
+            $movies,
+            $returnMovie
+        );
+    }
 
 
 ?>
@@ -19,7 +29,14 @@ $movies = $tmdb->getTopRatedMovies();
 <script src="./listMovies/featuredFilms/index.js"></script>
 
 <div class="movieRow my-3">
-    <h2 class="h4">Filmes mais assistidos.</h2>
+    <h2 class="h4">
+        <?php
+        if ($movieIds == null)
+            echo "Adicione um filme para sua lista";
+        else
+            echo "Filmes";
+        ?>
+    </h2>
     <div class="movieRow--left" onclick="scrollFeaturedFilms.handleLeft()">
         <span>
             < </span> </div> <div class="movieRow--right" onclick="scrollFeaturedFilms.handleRight(<?= isset($movies) ? count($movies) : 0 ?>)">
