@@ -54,7 +54,7 @@ $typeMTV = "film";
                     </button>
                 </form>
                 <div class="d-flex ml-3 align-items-center">
-                    <p class="px-2 mb-0">Olá, <?php if (isset($user['email']))  echo $user['email'] ?></p>
+                    <p class="px-2 mb-0">Olá, <?php if (isset($user))  echo $user ?></p>
                     <a href="/HUEHUECINE/view/signOut.php" class="btn btn-sm"><i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </nav>
