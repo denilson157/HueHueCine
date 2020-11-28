@@ -1,5 +1,7 @@
 <?php
 
+use function PHPSTORM_META\type;
+
 header("Content-Type: application/json");
 
 require_once(dirname(__FILE__) . "./User.php");
@@ -31,5 +33,92 @@ class Lista{
 
         return $stmt;
 
+    }
+
+    public function getList($userEmail, $movieId, $typeMTV)
+    {
+        global $db;
+
+        $user = new User();
+        $userId = $user->returnUser($userEmail);
+        $userId = (int)$userId[0]['id']; // Pega id do usuario
+
+        $movieId = $movieId;
+
+        if( $typeMTV == 'tv' ){//Verifica se é tipo TV ou Filme e faz a consulta de acordo
+            $stmt = $db->prepare("SELECT id, idStatus FROM ListaSerie WHERE idUsuario = :userId and idFilme = :filmId ");
+       }else{
+           $stmt = $db->prepare("SELECT id, idStatus FROM ListaFilme WHERE idUsuario = :userID and idFilme = :filmId ");
+        }
+
+        $stmt->bindParam(':userId', $userId);
+        $stmt->bindParam(':filmId', $movieId);
+        
+        
+        $stmt->execute();
+
+      //  $teste = array("a" => $userId, "b" => $typeMTV, "c" => $movieId);
+      //  return $teste;
+
+        if ($stmt->rowCount() != 0){
+            return $stmt->fetch();
+        }
+        return null;
+    }
+
+    public function deleteList($userEmail, $movieId, $typeMTV)
+    {
+        global $db;
+
+        $user = new User();
+        $userId = $user->returnUser($userEmail);
+        $userId = (int)$userId[0]['id']; // Pega id do usuario
+
+        $movieId = $movieId;
+
+        if( $typeMTV == 'tv' ){//Verifica se é tipo TV ou Filme e faz a consulta de acordo
+            $stmt = $db->prepare("DELETE FROM ListaSerie where idUsuario = :userId and idFilme = :filmId ");
+        }else{
+            $stmt = $db->prepare("DELETE FROM ListaFilme where idUsuario = :userId and idFilme = :filmId ");
+        }
+
+        $stmt->bindParam(':userId', $userId);
+        $stmt->bindParam(':filmId', $movieId);
+
+        $stmt->execute();
+
+        if ($stmt->rowCount() != 0)
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+        return null;
+    }
+
+    public function updateList($userEmail, $movieId, $typeMTV)
+    {
+        global $db;
+
+        $user = new User();
+        $userId = $user->returnUser($userEmail);
+        $userId = (int)$userId[0]['id']; // Pega id do usuario
+
+        $movieId = $movieId;
+
+        if( $typeMTV == 'tv' ){//Verifica se é tipo TV ou Filme e faz a consulta de acordo
+            $stmt = $db->prepare("UPDATE ListaSerie SET idStatus = 3 WHERE idUsuario = :userId and idFilme = :filmId ");
+        }else{
+            $stmt = $db->prepare("UPDATE ListaFilme SET idStatus = 3 WHERE idUsuario = :userId and idFilme = :filmId ");
+        }
+
+        $stmt->bindParam(':userId', $userId);
+        $stmt->bindParam(':filmId', $movieId);
+
+        $stmt->execute();
+
+        if ($stmt->rowCount() != 0)
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+        return null;
     }
 }

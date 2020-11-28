@@ -34,4 +34,53 @@ class ListController {
                 return 400;
         }
     }
+
+    public function getList()
+    {
+        if (
+            $this->user != null &&
+            $this->movie != null &&
+            $this->typeMTV != null
+        ) {
+            $listClass = new Lista();
+
+            $return = $listClass->getList($this->user, $this->movie, $this->typeMTV);
+
+
+            return $return;
+        }
+    }
+
+    public function deleteList()
+    {
+        if (
+            $this->user != null &&
+            $this->movie != null &&
+            $this->typeMTV != null
+        ) {
+            $listClass = new Lista();
+
+            $return = $listClass->deleteList($this->user, $this->movie, $this->typeMTV);
+
+
+            return $return;
+        }
+    }
+
+    
+    public function updateList()
+    {
+        if (
+            $this->user != null &&
+            $this->movie != null &&
+            $this->typeMTV != null
+        ) {
+            $listClass = new Lista();
+
+            $return = $listClass->updateList($this->user, $this->movie, $this->typeMTV);
+
+
+            return $return;
+        }
+    }
 }

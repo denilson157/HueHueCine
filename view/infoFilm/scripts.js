@@ -1,9 +1,9 @@
 //Init
 document.onreadystatechange = function () {
-    if(document.readyState === 'complete'){
+    if (document.readyState === 'complete') {
         verifyList();
     }
-  }
+}
 
 //#region Comentario
 $('#formReview').submit(e => {
@@ -93,117 +93,142 @@ getComments();
 //Botão para Adicionar
 $('#submitAdd').click(e => {
     e.preventDefault();
-        console.log(e);
+    e.stopImmediatePropagation();
+    console.log(e);
 
-        const estado = $('#estadoLista').val();
-        const movieId = $('#idMovieTv').val();
-        const typeMTV = $('#typeMTV').val();
+    const estado = $('#estadoLista').val();
+    const movieId = $('#idMovieTv').val();
+    const typeMTV = $('#typeMTV').val();
 
-        console.log(estado);
-        if (movieId !== "" && movieId !== undefined && movieId !== null) {
-            $.ajax({
-                url: '/HUEHUECINE/controller/list/insertList.php',
-                method: 'POST',
-                data: { state: estado, typeMTV: typeMTV, movieId: parseInt(movieId) },
-                dataType: 'json'
-            }).done(() => {
-                //Atualiza os botões da tela
-                document.getElementById('submitAdd').remove();
-                $('#submits').append(
-                    //Botão para Atualizar estado da Lista
-                    '<button class="ml-1 btn btn-sm btn-secondary" form="formLista" type="submit" id="submitAtt">'
-                    +'Atualizar'+
-                    '</button>'+
-                    //Botão para Atualizar estado da Lista
-                    '<button class="ml-1 btn btn-sm btn-warning" form="formLista" type="submit" id="submitRem">'
-                    +'Remover'+
-                    '</button>')
-            });
-        }
+    console.log(estado);
+    if (movieId !== "" && movieId !== undefined && movieId !== null) {
+        $.ajax({
+            url: '/HUEHUECINE/controller/list/insertList.php',
+            method: 'POST',
+            data: { state: estado, typeMTV: typeMTV, movieId: parseInt(movieId) },
+            dataType: 'json'
+        }).done(() => {
+            //Atualiza os botões da tela
+            document.getElementById('submitAdd').remove();
+            $('#submits').append(
+                //Botão para Atualizar estado da Lista
+                '<button class="ml-1 btn btn-sm btn-secondary" form="formLista" type="submit" id="submitAtt">'
+                + 'Atualizar' +
+                '</button>' +
+                //Botão para Atualizar estado da Lista
+                '<button class="ml-1 btn btn-sm btn-warning" form="formLista" type="submit" id="submitRem">'
+                + 'Remover' +
+                '</button>');
+        });
+    }
 });
 
 //Botão para Atualizar
 $('#submitAtt').click(e => {
     e.preventDefault();
-    console.log("Botão Atualizar Clickado");
-    /*
-         const estado = $('#estadoLista').val();
-         const movieId = $('#idMovieTv').val();
-         const typeMTV = $('#typeMTV').val();
- 
-         console.log(estado);
-         if (movieId !== "" && movieId !== undefined && movieId !== null) {
-             $.ajax({
-               //  url: '/HUEHUECINE/controller/list/insertList.php',
-                 method: 'POST',
-                 data: { state: estado, typeMTV: typeMTV, movieId: parseInt(movieId) },
-                 dataType: 'json'
-             }).done(() => {
-                 //Atualizar botão ou tela para sinalizar que o filme ja esta na lista
-                 
-             });
-         }*/
- });
+    console.log("Botão Atualizar Clickado"); //------------Teste
+
+    const estado = $('#estadoLista').val();
+    const movieId = $('#idMovieTv').val();
+    const typeMTV = $('#typeMTV').val();
+
+    console.log(estado);
+    if (movieId !== "" && movieId !== undefined && movieId !== null) {
+        $.ajax({
+            url: '/HUEHUECINE/controller/list/updateList.php',
+            method: 'POST',
+            data: { state: estado, typeMTV: typeMTV, movieId: parseInt(movieId) },
+            dataType: 'json'
+        }).done(result => {
+            //Colocar mensagem/alert para sinalizar que foi atualizado com sucesso.
+            alert("Atualizado com sucesso!");
+
+        });
+    }
+});
 
 //Botão para Remover da Lista
 $('#submitRem').click(e => {
     e.preventDefault();
-    console.log("Botão Remover Clickado");
-    /*
-        const estado = $('#estadoLista').val();
-        const movieId = $('#idMovieTv').val();
-        const typeMTV = $('#typeMTV').val();
+    console.log("Botão Remover Clickado"); //------------Teste
 
-        console.log(estado);
-        if (movieId !== "" && movieId !== undefined && movieId !== null) {
-            $.ajax({
-              //  url: '/HUEHUECINE/controller/list/insertList.php',
-                method: 'POST',
-                data: { state: estado, typeMTV: typeMTV, movieId: parseInt(movieId) },
-                dataType: 'json'
-            }).done(() => {
-                //Atualizar botão ou tela para sinalizar que o filme ja esta na lista
-                
-            });
-        }*/
+    const estado = $('#estadoLista').val();
+    const movieId = $('#idMovieTv').val();
+    const typeMTV = $('#typeMTV').val();
+
+    console.log(estado);
+    if (movieId !== "" && movieId !== undefined && movieId !== null) {
+        $.ajax({
+            url: '/HUEHUECINE/controller/list/deleteList.php',
+            method: 'POST',
+            data: { state: estado, typeMTV: typeMTV, movieId: parseInt(movieId) },
+            dataType: 'json'
+        }).done(result => {
+            //Fazer regra com base no retorno => Para isso verificar como vem o retorno do delete
+
+            //Atualiza os botões da tela
+            document.getElementById('submitAtt').remove();
+            document.getElementById('submitRem').remove();
+            $('#submits').append(
+                //Botão para Adicionar na Lista
+                '<button class="ml-1 btn btn-sm btn-primary" form="formLista" type="submit" id="submitAdd">'
+                + 'Adicionar' +
+                '</button>');
+        });
+    }
 });
 
 //Verifica se o filme atual está na lista.
 const verifyList = () => {
 
-    //Teste para atualizar UI
-    result = [1, "2"];
+    const movieId = $('#idMovieTv').val();
+    const typeMTV = $('#typeMTV').val();
 
-    /*
-    * Inserir busca no banco pela requisão http
-    */
+    if ((movieId !== "" && movieId !== undefined)) {
 
-    //Ja esta adicionado na lista?
-    if(result[0] == 1){ 
+        $.ajax(
+            {
+                url: '/HUEHUECINE/controller/list/getList.php',
+                method: 'POST',
+                data: { typeMTV: typeMTV, movieId: parseInt(movieId) },
+                dataType: 'json'
+            }).done(result => {
 
-        //Remove Botão para adicionar caso ele exista
-        if(document.getElementById('submitAdd') != null){ document.getElementById('submitAdd').remove(); }
+                console.log(result);
+                console.log("Verificou");
 
-        //Adiciona os botões para gerenciar lista
-        $('#submits').append(
-            //Botão para Atualizar estado da Lista
-            '<button class="ml-1 btn btn-sm btn-secondary" form="formLista" type="submit" id="submitAtt">'
-            +'Atualizar'+
-            '</button>'+
-            //Botão para Atualizar estado da Lista
-            '<button class="ml-1 btn btn-sm btn-warning" form="formLista" type="submit" id="submitRem">'
-            +'Remover'+
-            '</button>');
-        
-        
+                //Ja esta adicionado na lista?
+                if (result != null) {
 
-    }else{ //Não Está na Lista
-        $('#submits').append(
-            //Botão para Atualizar estado da Lista
-            '<button class="ml-1 btn btn-sm btn-primary" form="formLista" type="submit" id="submitAdd">'
-            +'Adicionar'+
-            '</button>');
-        console.log("Ta não pai");
+                    //Remove Botão para adicionar caso ele exista
+                    if (document.getElementById('submitAdd') != null) { document.getElementById('submitAdd').remove(); }
+
+                    //Adiciona os botões para gerenciar lista
+                    $('#submits').append(
+                        //Botão para Atualizar estado da Lista
+                        '<button class="ml-1 btn btn-sm btn-secondary" form="formLista" type="submit" id="submitAtt">'
+                        + 'Atualizar' +
+                        '</button>' +
+                        //Botão para Atualizar estado da Lista
+                        '<button class="ml-1 btn btn-sm btn-warning" form="formLista" type="submit" id="submitRem">'
+                        + 'Remover' +
+                        '</button>');
+
+                    //Seta opção da select option de acordo com retorno
+                    document.getElementById('estadoLista').value = result['idStatus'];
+
+
+                    //Não Está na Lista
+                } else {
+                    $('#submits').append(
+                        //Botão para Atualizar estado da Lista
+                        '<button class="ml-1 btn btn-sm btn-primary" form="formLista" type="submit" id="submitAdd">'
+                        + 'Adicionar' +
+                        '</button>');
+                    console.log("Ta não pai");
+                }
+
+            });
     }
 
 }
