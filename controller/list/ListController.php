@@ -76,12 +76,13 @@ class ListController
     {
         if (
             $this->user != null &&
+            $this->state != null &&
             $this->movie != null &&
             $this->typeMTV != null
         ) {
             $listClass = new Lista();
 
-            $return = $listClass->updateList($this->user, $this->movie, $this->typeMTV);
+            $return = $listClass->updateList($this->user, $this->state, $this->movie, $this->typeMTV);
 
 
             return $return;

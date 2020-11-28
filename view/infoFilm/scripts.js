@@ -101,12 +101,10 @@ function atualizaBtns(btnclickado) {
         document.getElementById('submitAdd').style.display = 'none';
         document.getElementById('submitAtt').style.display = "";
         document.getElementById('submitRem').style.display = "";
-        console.log("Entrou aqui");
     }else{
         document.getElementById('submitAdd').style.display = "";
         document.getElementById('submitAtt').style.display = "none";
         document.getElementById('submitRem').style.display = "none";
-        console.log("Entrou aqui2");
     }
     
 }
@@ -114,14 +112,11 @@ function atualizaBtns(btnclickado) {
 //Botão para Adicionar
 $('#submitAdd').click(e => {
     e.preventDefault();
-    e.stopImmediatePropagation();
-    console.log(e);
 
     const estado = $('#estadoLista').val();
     const movieId = $('#idMovieTv').val();
     const typeMTV = $('#typeMTV').val();
 
-    console.log(estado);
     if (movieId !== "" && movieId !== undefined && movieId !== null) {
         $.ajax({
             url: '/HUEHUECINE/controller/list/insertList.php',
@@ -142,13 +137,11 @@ $('#submitAdd').click(e => {
 //Botão para Atualizar
 $('#submitAtt').click(e => {
     e.preventDefault();
-    console.log("Botão Atualizar Clickado"); //------------Teste
 
     const estado = $('#estadoLista').val();
     const movieId = $('#idMovieTv').val();
     const typeMTV = $('#typeMTV').val();
 
-    console.log(estado);
     if (movieId !== "" && movieId !== undefined && movieId !== null) {
         $.ajax({
             url: '/HUEHUECINE/controller/list/updateList.php',
@@ -165,13 +158,11 @@ $('#submitAtt').click(e => {
 //Botão para Remover da Lista
 $('#submitRem').click(e => {
     e.preventDefault();
-    console.log("Botão Remover Clickado"); //------------Teste
 
     const estado = $('#estadoLista').val();
     const movieId = $('#idMovieTv').val();
     const typeMTV = $('#typeMTV').val();
 
-    console.log(estado);
     if (movieId !== "" && movieId !== undefined && movieId !== null) {
         $.ajax({
             url: '/HUEHUECINE/controller/list/deleteList.php',
@@ -205,9 +196,6 @@ const verifyList = () => {
                 dataType: 'json'
             }).done(result => {
 
-                console.log(result);
-                console.log("Verificou");
-
                 //Ja esta adicionado na lista?
                 if (result != null) { //Caso Positivo
 
@@ -222,7 +210,6 @@ const verifyList = () => {
 
                     //Atualzia Botões na tela
                     atualizaBtns("submitRem"); //Rem pois se ele não existe na lista, deve ser passado como parametros submitRem na função
-                    console.log("Ta não pai");
                 }
             });
     }

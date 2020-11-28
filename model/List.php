@@ -120,7 +120,7 @@ class Lista
         return null;
     }
 
-    public function updateList($userEmail, $movieId, $typeMTV)
+    public function updateList($userEmail, $state, $movieId, $typeMTV)
     {
         global $db;
 
@@ -131,12 +131,13 @@ class Lista
         $movieId = $movieId;
 
         if ($typeMTV == 'tv') { //Verifica se é tipo TV ou Filme e faz a consulta de acordo
-            $stmt = $db->prepare("UPDATE ListaSerie SET idStatus = 3 WHERE idUsuario = :userId and idFilme = :filmId");
+            $stmt = $db->prepare("UPDATE ListaSerie SET idStatus = :stateId WHERE idUsuario = :userId and idFilme = :filmId");
         } else {
-            $stmt = $db->prepare("UPDATE ListaFilme SET idStatus = 3 WHERE idUsuario = :userId and idFilme = :filmId");
+            $stmt = $db->prepare("UPDATE ListaFilme SET idStatus = :stateId WHERE idUsuario = :userId and idFilme = :filmId");
         }
 
         $stmt->bindParam(':userId', $userId);
+        $stmt->bindParam(':stateId', $state);
         $stmt->bindParam(':filmId', $movieId);
 
         $stmt->execute();
