@@ -1,5 +1,9 @@
 <?php
 
+require_once(dirname(__FILE__) . "/../../model/List.php");
+session_start();
+
+
 class ListController
 {
     private $user;
@@ -46,9 +50,9 @@ class ListController
             $listClass = new Lista();
 
             $return = $listClass->getList($this->user, $this->movie, $this->typeMTV);
-           
 
-           return $return;
+
+            return $return;
         }
     }
 

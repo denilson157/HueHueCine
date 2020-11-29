@@ -8,7 +8,7 @@ class MOVIEApi extends TMDB
 
     public function getMovieDetail($movieId)
     {
-        var_dump($movieId);
+        
         $result = $this->get("/movie/$movieId?");
         if (count($result) > 0)
             return (object)  new Movie($result);

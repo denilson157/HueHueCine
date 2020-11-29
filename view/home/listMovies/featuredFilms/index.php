@@ -39,9 +39,6 @@ $movies = $tmdb->getTopRatedMovies();
                                     <div class="movie--info-year">
                                         <?= $movie->getYear() ?>
                                     </div>
-                                    <div class="movie--add-list">
-                                        <i class="fas fa-plus" title="Minha Lista"></i>
-                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -1,9 +1,3 @@
-//Init
-document.onreadystatechange = function () {
-    if (document.readyState === 'complete') {
-        verifyList();
-    }
-}
 
 //#region Comentario
 $('#formReview').submit(e => {
@@ -97,16 +91,16 @@ getComments();
 //Função para Controle Visual dos Botoes da Lista
 function atualizaBtns(btnclickado) {
 
-    if(btnclickado == "submitAdd"){
+    if (btnclickado == "submitAdd") {
         document.getElementById('submitAdd').style.display = 'none';
         document.getElementById('submitAtt').style.display = "";
         document.getElementById('submitRem').style.display = "";
-    }else{
+    } else {
         document.getElementById('submitAdd').style.display = "";
         document.getElementById('submitAtt').style.display = "none";
         document.getElementById('submitRem').style.display = "none";
     }
-    
+
 }
 
 //Botão para Adicionar
@@ -129,7 +123,7 @@ $('#submitAdd').click(e => {
 
             //Atualiza botões na tela
             atualizaBtns("submitAdd"); // Puxar dados pelo evento.
-            
+
         });
     }
 });
@@ -148,7 +142,7 @@ $('#submitAtt').click(e => {
             method: 'POST',
             data: { state: estado, typeMTV: typeMTV, movieId: parseInt(movieId) },
             dataType: 'json'
-        }).done( ()=> {
+        }).done(() => {
             alert("Atualizado com sucesso!");
 
         });
@@ -187,7 +181,7 @@ const verifyList = () => {
     const typeMTV = $('#typeMTV').val();
 
     if ((movieId !== "" && movieId !== undefined)) {
-        
+
         $.ajax(
             {
                 url: '/HUEHUECINE/controller/list/getList.php',
@@ -216,3 +210,6 @@ const verifyList = () => {
 }
 
 //#endregion
+
+
+verifyList();
