@@ -18,7 +18,7 @@ class ListaDB
             $tableConsulta = "ListaSerie";
 
 
-        $stmt = $db->prepare("SELECT idFilme FROM " . $tableConsulta . " WHERE idUsuario = :userId");
+        $stmt = $db->prepare("SELECT idFilme, idStatus FROM " . $tableConsulta . " WHERE idUsuario = :userId");
 
         $userId = (int)$userId[0]['id'];
 

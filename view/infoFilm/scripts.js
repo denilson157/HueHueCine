@@ -143,7 +143,6 @@ $('#submitAtt').click(e => {
             data: { state: estado, typeMTV: typeMTV, movieId: parseInt(movieId) },
             dataType: 'json'
         }).done(() => {
-            alert("Atualizado com sucesso!");
 
         });
     }
