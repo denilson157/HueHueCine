@@ -8,7 +8,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-dark justify-content-center">
             <div>
-                <img src="http://via.placeholder.com/100x60">
+                <img src="../images/Logo.png" style="width: 125px;">
                 <h1 class="d-none">HueHueCine</h1>
             </div>
         </nav>

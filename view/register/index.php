@@ -8,7 +8,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-dark justify-content-center">
             <div>
-                <img src="http://via.placeholder.com/100x60">
+                <img src="../images/Logo.png" style="width: 125px;">
                 <h1 class="d-none">HueHueCine</h1>
             </div>
         </nav>
@@ -20,7 +20,7 @@
 
             <div class="col-6">
 
-            <?php if (isset($msg)) : ?>
+                <?php if (isset($msg)) : ?>
                     <h2 style='text-align: center;' class="h3 w-100 mx-auto col-6 text-warning">
                         <?= $msg ?>
                     </h2>

@@ -18,7 +18,7 @@ $userSession->retirectIfExist();
 
         <nav class="navbar navbar-expand navbar-dark justify-content-between">
             <div class="navbar-brand">
-                <img src="http://via.placeholder.com/100x60">
+                <img src="../images/Logo.png" style="width: 100px;">
                 <h1 class="d-none">HueHueCine</h1>
             </div>
             <ul class="navbar-nav mr-auto">
