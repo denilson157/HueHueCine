@@ -5,20 +5,31 @@ $controller = new ListDBController();
 
 $tvIds = $controller->getListByUser("tv");
 
-$movies = $controller->getTvsById($tvIds);
+$movies =  [];
+$moviesWantWatchID =  [];
+$moviesWantWatch =  [];
+$moviesWatchingID =  [];
+$moviesWatching =  [];
+$moviesWatchedID =  [];
+$moviesWatched =  [];
 
-$moviesWantWatchID = $controller->getMoviesWantWatch($tvIds);
+if ($tvIds != null) {
 
-$moviesWantWatch = $controller->getTvsById($moviesWantWatchID);
 
-$moviesWatchingID = $controller->getMoviesWatching($tvIds);
+    $movies = $controller->getTvsById($tvIds);
 
-$moviesWatching = $controller->getTvsById($moviesWatchingID);
+    $moviesWantWatchID = $controller->getMoviesWantWatch($tvIds);
 
-$moviesWatchedID = $controller->getMoviesWatched($tvIds);
+    $moviesWantWatch = $controller->getTvsById($moviesWantWatchID);
 
-$moviesWatched = $controller->getTvsById($moviesWatchedID);
+    $moviesWatchingID = $controller->getMoviesWatching($tvIds);
 
+    $moviesWatching = $controller->getTvsById($moviesWatchingID);
+
+    $moviesWatchedID = $controller->getMoviesWatched($tvIds);
+
+    $moviesWatched = $controller->getTvsById($moviesWatchedID);
+}
 
 ?>
 
