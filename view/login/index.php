@@ -59,7 +59,7 @@
                     <div class="row">
                         <div class="mx-auto">
                             <div class="text-center">
-                                <a class="text-secondary" href="/HUEHUECINE/view/home/logout"> Prosseguir sem cadastro</a>
+                                <a class="text-secondary" href="/HUEHUECINE/view/home/logout.php"> Prosseguir sem cadastro</a>
                             </div>
                         </div>
                     </div>
