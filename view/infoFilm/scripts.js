@@ -142,7 +142,7 @@ $('#submitAtt').click(e => {
             method: 'POST',
             data: { state: estado, typeMTV: typeMTV, movieId: parseInt(movieId) },
             dataType: 'json'
-        }).done(() => {
+        }).done(() => {  
 
         });
     }

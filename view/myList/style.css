@@ -83,3 +83,8 @@ a:hover{
     color: white;
     text-decoration: none;
 }
+.movie--info-year{
+    display: inline-block;
+    font-size: small;
+    color:white;
+}
