@@ -19,4 +19,34 @@ class User
         else
             return $sql;
     }
+
+    public function updateUser(
+        $nome,
+        $sobrenome,
+        $email,
+        $telefone,
+        $senha,
+        $data
+    ) {
+        global $db;
+
+        $sql = $db->prepare("UPDATE Usuario 
+        set  nome = :nome,  sobrenome = :sobrenome,  email = :email,  dataNascimento = :datan,  telefone = :telefone, senha = :senha
+        WHERE email = :mail");
+
+
+        $sql->bindParam(':nome', $nome);
+        $sql->bindParam(':sobrenome', $sobrenome);
+        $sql->bindParam(':email', $email);
+        $sql->bindParam(':mail', $email);
+        $sql->bindParam(':datan', $data);
+        $sql->bindParam(':telefone', $telefone);
+        $sql->bindParam(':senha', $senha);
+
+        
+        if ($sql->execute())
+            return true;
+        else
+            return false;
+    }
 }
